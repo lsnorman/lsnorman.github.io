@@ -1,0 +1,725 @@
+/* =========================
+   Global Styles
+   ========================= */
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500&display=swap');
+
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+    
+}
+
+/* =========================
+   Header / Navbar Styles
+   ========================= */
+
+#navbar {
+    position: fixed;
+    width: 100%;
+    padding: 0;
+    background: rgba(51,51,51, 0);
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: 0.6s;
+    z-index: 100; /* Ensures the navbar stays on top of other elements */
+    height: 100px; /* Adjust as necessary */
+    top: 0;
+}
+
+#navbar .logo {
+    margin-left: 30px;
+}
+#navbar .logo img {
+    height: 75px; /* adjust as necessary */
+    width: auto; /* maintain aspect ratio */
+}
+
+#navbar .nav {
+    margin-right: 20px; /* Adds space to the right of the nav */
+}
+
+.nav ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav ul li {
+    list-style: none;
+    margin: 0 20px;
+}
+
+.nav ul li a {
+    color: #ffffff;
+    font-weight: 500;
+    text-decoration: none;
+    transition: transform 0.5s ease;
+    display: inline-block;
+    position: relative;
+    font-family: 'Julius Sans One', sans-serif;
+}
+
+.nav ul li a::after {
+    content: '';
+    display: block;
+    font-weight: 500;
+    width: 0;
+    height: 2px;
+    background: #f8f8f8;
+    transition: width .3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+.nav ul li a:hover {
+    transform: scale(1.1);
+    color: #fdfdfd
+}
+
+.nav ul li a:hover::after {
+    width: 100%;
+}
+
+.menu-toggle {
+    display: none; /* Hidden by default, will be displayed on smaller screens */
+}
+
+.nav ul li.close-menu {
+    display: none; /* Hide by default, will be shown when menu is active on mobile */
+}
+
+#logoScreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1000;
+    transition: opacity 1s;
+}
+
+#logoScreen::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.6);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+#logoContainer {
+    position: relative;
+    height: 200px;
+    width: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logo {
+    height: 100%;
+    width: auto;
+    z-index: 2;
+}
+
+#loadingBar {
+    position: absolute;
+    bottom: 48px; /* Adjust this to position the loading bar correctly */
+    left: 50%;
+    transform: translateX(-50%); /* This will center the loading bar */
+    height: 2px; /* Adjust this to change the thickness of the loading bar */
+    background: #c2939a; /* Adjust this to change the color of the loading bar */
+    width: 0;
+    max-width: 485px; /* Limit the maximum width of the loading bar */
+    transition: width 3s ease-in-out;
+    z-index: 2;
+}
+
+
+
+/* =========================
+   Main Content Styles
+   ========================= */
+
+/* =========================
+   HOME Content Styles
+   ========================= */
+
+
+  .background-image {
+    background-image: url('background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    min-height: 800px; /* adjust as necessary */
+    width: 100%;
+    position: relative;
+    z-index: -2; /* Add this line */
+  }
+  
+  .background-image::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.6); /* Overlay color with some transparency */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Make sure it overlays the background image */
+  }
+
+  .background-image-nav{
+    background-image: url('background.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100px; /* adjust as necessary */
+    width: 100%;
+    position: fixed; /* Add this line */
+    top: 0;
+  }
+  .background-image-nav::before {
+    content: "";
+    background: rgba(0, 0, 0, 0.6); /* Overlay color with some transparency */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1; /* Make sure it overlays the background image */
+    top: 0;
+  }
+  
+  
+  .slogan-and-button {
+    position: relative;
+    z-index: 2; /* Make sure it overlays the overlay :) */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 800px; /* Adjust to the height of the background-image */
+    color: #ffffff; /* Change text color to white */
+    text-align: center; /* Center text */
+  }
+  
+  .slogan {
+    font-size: 3em;
+    font-weight: 400; /* Make text thinner, assuming your font supports it */
+    margin-bottom: 20px;
+    font-family: 'Julius Sans One', sans-serif;
+  }
+  
+  .book-now {
+    border: none;
+    background: #C6A9AE;
+    color: white;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transform to transitions */
+    border-radius: 15px; /* Rounded corners */
+  }
+  
+  .book-now:hover {
+    background: #978185;
+    transform: scale(1.1); /* Scale size up by 10% on hover */
+  }
+
+  
+  
+  
+  
+
+  .testimonial-slider {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.slides-container {
+    display: flex;
+    width: 300%; /* You might need to adjust this */
+    height: 100%;
+    position: absolute;
+    left: 0;
+    transition: left 1s ease-in-out; /* Adjust animation speed here */
+}
+
+.testimonial-slide {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 70px;
+    box-sizing: border-box;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+}
+
+
+
+  .testimonial-slide img {
+    max-width: 100px;
+    height: 50px;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .testimonial-slide .testimonial-text {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: #54797F;
+    font-weight: lighter;
+    margin-bottom: 10px;
+}
+  
+.testimonial-author {
+    font-size: 1.0rem;
+    font-weight: 800;
+    color: #978185;
+}
+
+/* Navigation Buttons */
+#prevBtn,
+#nextBtn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0,0,0,0.5);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  font-size: 1.5rem;
+  z-index: 1; 
+  transition: transform 0.3s, background-color 0.3s; 
+  transform-origin: center; 
+}
+
+#prevBtn {
+  left: 10px;
+}
+
+#nextBtn {
+  right: 10px;
+}
+
+/* Add the hover effect */
+#prevBtn:hover,
+#nextBtn:hover {
+  transform: scale(1.01);
+  background-color: #54797F; /* Forest Green */
+  animation: shake 2s ease-in-out infinite; 
+  animation-delay: 2s;
+}
+
+/* Define the shake animation */
+@keyframes shake {
+  0% { transform: scale(1.01) rotate(0deg); }
+  20% { transform: scale(1.01) rotate(-2deg); }
+  40% { transform: scale(1.01) rotate(2deg); }
+  60% { transform: scale(1.01) rotate(-2deg); }
+  80% { transform: scale(1.01) rotate(2deg); }
+  100% { transform: scale(1.01) rotate(0deg); }
+}
+
+/* ABOUT SECTION STYLES */
+
+
+
+
+
+.about-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch; /* Change this line */
+    margin: 20px 0;
+    background-color: #d7d7d7;
+    flex-wrap: wrap;
+    padding-top: 100px;
+}
+
+.about-image {
+    flex: 0 0 40%;
+    max-width: 40%;
+    display: flex; /* Add this line */
+    justify-content: center; /* Add this line */
+    align-items: center; /* Add this line */
+    overflow: hidden; /* Add this line */
+}
+
+.about-image img {
+    min-width: 100%; /* Change this line */
+    min-height: 100%; /* Change this line */
+    object-fit: cover; /* Change this line */
+}
+
+.about-section.reverse {
+    flex-direction: row-reverse;
+    padding-top: 0;
+}
+
+.about-section,
+.about-section.reverse {
+    z-index: 1; /* Lower z-index so it's underneath the navbar */
+    /* Other styles... */
+}
+
+.about-text {
+    flex: 0 0 60%;
+    max-width: 60%; /* Add this line */
+    padding: 20px;
+}
+
+.about-text h2 {
+    font-size: 2em;
+    margin-bottom: 10px;
+    color: #978185;
+}
+
+.about-text p {
+    font-size: 1em;
+    line-height: 1.5;
+    margin-bottom: 20px;
+    color: #54797F;
+}
+
+@media (max-width: 768px) {
+    .about-section {
+        flex-direction: column;
+    }
+
+    .about-image,
+    .about-text {
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
+    .about-text {
+        order: -1;
+    }
+
+    .about-image img {
+        width: 100%; /* Change this line */
+        height: auto; /* Change this line */
+    }
+}
+
+
+
+
+
+
+
+
+  
+  
+
+/* =========================
+   Footer Styles
+   ========================= */
+
+   footer {
+    background: #54797F;
+    color: #fff;
+    display: flex; /* Added this */
+    flex-wrap: wrap; /* Added this */
+    justify-content: space-between; /* Added this */
+    align-items: stretch; /* Added this */
+}
+
+.info-container {
+    display: flex;
+    flex-direction: row; /* Added this */
+    width: 100%; /* Added this */
+    height: 100%; /* Added this */
+    justify-content: space-between;
+    align-items: stretch;
+}
+
+.map-container {
+    flex: 0.4; /* Adjust this for your 50% width for map */
+    height: auto; /* Adjusted this */
+    position: relative;
+}
+
+
+
+.map-container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.2); /* Change the 0.5 to adjust darkness */
+    mix-blend-mode: multiply;
+    pointer-events: none;
+}
+
+.address {
+    flex: 0.2; /* Adjust this for your 20% width for address */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.enquiry-form {
+    flex: 0.3; /* Adjust this for your 30% width for form */
+    background-color: #47666b;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: stretch;
+    padding: 20px;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .info-container {
+        flex-direction: column;
+    }
+    .map-container,
+    .address,
+    .enquiry-form {
+        width: 100%;
+    }
+    .map-container {
+        height: 50vh; /* Adjust the height as per requirement */
+    }
+}
+
+
+.enquiry-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.enquiry-form input,
+.enquiry-form textarea {
+    margin: 10px 0;
+    padding: 10px;
+    font-size: 16px;
+    font-family: Arial, sans-serif; /* add the font family you want */
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+.enquiry-form textarea {
+    height: 100px; /* adjust this to get your desired height */
+}
+
+.enquiry-form button {
+    margin: 20px 0;
+    padding: 10px;
+    width: 100px;
+    justify-content: center;
+    font-size: 16px;
+    background-color: rgb(89, 117, 172);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease; /* added transition effect */
+}
+
+.enquiry-form button:hover {
+    transform: scale(1.1); /* increases size of the button */
+    background-color: rgb(63, 93, 136); /* darkens the button color */
+}
+
+
+
+.footer-logos {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%; /* adjust this value as needed */
+    margin: 0 auto; /* center the logos container */
+    padding: 20px; /* space around the logos */
+    background-color: #DAE3DA; /* background color for the logos container */
+}
+
+.footer-logos img {
+    height: 100px; /* adjust this value to get your desired height */
+    width: auto;
+}
+
+#toast {
+    visibility: hidden;
+    max-width: 50%;
+    margin: auto;
+    background-color: rgb(51,51,51);
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 25%;
+    bottom: 30px;
+    font-size: 17px;
+}
+
+#toast.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+}
+
+
+
+/* =========================
+   Mobile / Responsive Styles
+   ========================= */
+
+
+
+@media (max-width: 768px) {
+    .nav ul {
+        position: fixed;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        top: 0;
+        flex-direction: column;
+        justify-content: start;
+        background-color: #54797F;
+        padding-top: 60px;
+        transition: 0.5s;
+    }
+
+    .nav ul li {
+        margin: 30px 0;
+    }
+
+    .menu-toggle {
+        display: block;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+
+    .close-menu {
+        display: none; /* Hide by default */
+        position: absolute;
+        top: 15px;
+        left: 15px;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    /* Show close button when menu is active */
+    .nav.active .close-menu {
+        display: block;
+    }
+
+    .nav.active ul {
+        right: 0;
+    }
+
+    .menu-toggle.active {
+        color: #fff; /* Change color when active or add any other styles */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .testimonial-slide {
+        padding: 30px; /* reduce padding */
+    }
+
+    .testimonial-slide img {
+        max-width: 80px; /* reduce image size */
+        height: 50px;
+    }
+
+    .testimonial-slide .testimonial-text {
+        font-size: 0.9rem; /* reduce font size */
+    }
+
+    .testimonial-author {
+        font-size: 0.8rem; /* reduce font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .testimonial-slide {
+        padding: 20px; /* further reduce padding */
+    }
+
+    .testimonial-slide img {
+        max-width: 60px; /* further reduce image size */
+        height: 40px;
+    }
+
+    .testimonial-slide .testimonial-text {
+        font-size: 0.8rem; /* further reduce font size */
+    }
+
+    .testimonial-author {
+        font-size: 0.7rem; /* further reduce font size */
+    }
+}
+
+
+@media (max-width: 768px) {
+    .slogan {
+        font-size: 2em; /* reduce font size */
+    }
+}
+
+@media (max-width: 480px) {
+    .slogan {
+        font-size: 1.5em; /* further reduce font size */
+    }
+}
