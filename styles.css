@@ -34,6 +34,7 @@ body {
     z-index: 100; /* Ensures the navbar stays on top of other elements */
     height: 100px; /* Adjust as necessary */
     top: 0;
+    background-color: #54797F;
 }
 
 #navbar .logo {
@@ -45,7 +46,8 @@ body {
 }
 
 #navbar .nav {
-    margin-right: 20px; /* Adds space to the right of the nav */
+    margin-right: 20px;
+    /* Adds space to the right of the nav */
 }
 
 .nav ul {
@@ -69,7 +71,7 @@ body {
     font-family: 'Julius Sans One', sans-serif;
 }
 
-.nav ul li a::after {
+.nav ul li a:not(.a-exc)::after {
     content: '';
     display: block;
     font-weight: 500;
@@ -82,12 +84,12 @@ body {
     left: 0;
 }
 
-.nav ul li a:hover {
+.nav ul li a:not(.a-exc):hover {
     transform: scale(1.1);
     color: #fdfdfd
 }
 
-.nav ul li a:hover::after {
+.nav ul li a:not(.a-exc):hover::after {
     width: 100%;
 }
 
@@ -99,6 +101,39 @@ body {
     display: none; /* Hide by default, will be shown when menu is active on mobile */
 }
 
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    padding-top: 50px;
+    padding-bottom: 50px;
+   
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    background-color: #54797F;
+    margin-top: 40px;
+  }
+  .dropdown-content a {
+    padding-top:15px;
+    padding-bottom: 15px;
+  }
+  
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  .nav ul li a.a-exc:hover {
+   transform: scale(1.1);
+  }
+
+  
 #logoScreen {
     position: fixed;
     top: 0;
@@ -165,6 +200,7 @@ body {
    HOME Content Styles
    ========================= */
 
+   
 
   .background-image {
     background-image: url('background.jpg');
@@ -437,10 +473,123 @@ body {
 
 
 
+/* CARE HTML STYLES */
+
+.full-page{
+    z-index: -3;
+}
+
+.section {
+    text-align: center;
+}
+
+.slide {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
+.slide img {
+    width: 4%;
+    height: auto;
+    padding-bottom: 20px;
+}
+
+.slide-content {
+    width: 100%;
+    padding-left: 20px;
+    color: #54797F;
+    font-size: 1.1rem;
+}
+#timeline {
+    position: fixed;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: right;
+    background-color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.timeline-item {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 20px;
+    cursor: pointer;
+    color: #54797F;
+    font-weight: normal;
+    transition: all 0.3s ease;
+}
+
+.timeline-item:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 10px; /* reduce this from 15px to 10px */
+    height: 10px; /* reduce this from 15px to 10px */
+    background-color: #54797F;
+    border-radius: 50%;
+    transition: all 0.3s ease; /* add this to animate the color change */
+}
+
+.timeline-item:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 5px; /* reduce this from 7px to 5px to recenter the line */
+    width: 1px;
+    height: 20px;
+    background-color:#54797F;
+}
+
+.timeline-item:last-child:after {
+    display: none;
+}
+
+.timeline-item.active {
+    color: rgb(48, 166, 154);
+    font-weight: bold;
+}
+
+.timeline-item.active:before {
+    background-color: rgb(48, 166, 154); /* make the dot turquoise when the item is active */
+}
+
+.timeline-item:hover {
+    color: turquoise;
+}
+
+.section.fp-auto-height {
+    height: auto !important;
+}
 
 
 
+
+@media (max-width: 900px) { /* adjust this value to the screen width at which you want the timeline to move to the bottom */
+    #timeline {
+        position: fixed;
+        right: unset;
+        bottom: 10px;
+        top: unset;
+        transform: unset;
+        text-align: center;
+    }
+}
   
+
+/*WTE HTML */
+
+.placeholder {
+    margin-top: 100px;
+    width: 100%;
+    min-height: 900px;
+}
   
 
 /* =========================
@@ -453,7 +602,8 @@ body {
     display: flex; /* Added this */
     flex-wrap: wrap; /* Added this */
     justify-content: space-between; /* Added this */
-    align-items: stretch; /* Added this */
+    align-items: stretch;
+    z-index: 2; /* Added this */
 }
 
 .info-container {

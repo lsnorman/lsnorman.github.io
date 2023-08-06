@@ -1,0 +1,255 @@
+<!--
+Dropdown on chiropractic care:
+- Intro to Chiropractic Care 
+- What to expect?
+
+- Intro to chiropractic care is currently this html page
+
+
+
+-->
+
+<html>
+<head>
+  <title>Your Website</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="script.js" defer></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+
+
+</head>
+<body>
+<div id="logoScreen">
+    <div id="logoContainer">
+        <img id="logo" src="cclogo.png" alt="Logo">
+        <div id="loadingBar"></div>
+    </div>
+</div>
+    
+<!-- Navbar -->
+<header id="navbar">
+    <a href="#" class="logo">
+        <img src="cclogo.png" alt="Logo">
+    </a>
+    <nav class="nav">
+        <ul>
+            <li class="close-menu">&times;</li>
+            <li><a href="index.html">HOME</a></li>
+            <li><a href="about.html">ABOUT</a></li>
+            <li class="dropdown">
+                <a href="care.html">CHIROPRACTIC CARE  &#9662;</a>
+                <div class="dropdown-content">
+                    <a href="care.html" class='a-exc'>Introduction</a>
+                    <a href="wte.html" class='a-exc'>What to Expect</a>
+                </div>
+            </li>
+              
+            <li><a href="#services">SERVICES</a></li>
+            <li><a href="#fees">FEES</a></li>
+        </ul>
+    </nav>
+    <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+</header>
+
+
+<main>
+   <!-- <section class="background-image-nav">
+    </section> -->
+    <div class='full-page' id="fullpage">
+        
+        <div class="section">
+            <div class="slide">
+                <img src="care.gif" alt="Image 1">
+                <div class="slide-content">
+                    <p>At Collins Chiropractic, we understand how pain, whether it&#39;s in your neck, joints, or back, can disrupt your life, limiting your mobility and affecting your overall well-being. <br>Our goal is to work closely with you, identifying the root cause of your pain and creating a personalized treatment plan to provide relief and enhance your body&#39;s natural healing abilities.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="slide">
+                <img src="mind.gif" alt="Image 2">
+                <div class="slide-content">
+                    <p>The state of our health can significantly influence our perspective on life.<br> Having an optimally functioning spine brings numerous benefits, such as improved mobility, reduced pain, and greater freedom to engage in the activities you enjoy.</p>
+
+                </div>
+            </div>
+        </div>
+        <div class="section">
+            <div class="slide">
+                <img src="leaf.gif" alt="Image 3">
+                <div class="slide-content">
+                    <p>Our health is shaped by various factors, including habits, postures, experiences with trauma and stress, and dietary choices.<br> The good news is that these factors are not fixed and can be positively influenced with appropriate support and encouragement.</p>
+
+
+                </div>
+            </div>
+        </div>
+        <div class="section">
+        <div class="slide">
+            <img src="spine.gif" alt="Image 4">
+            <div class="slide-content">
+                <p>The spine is a remarkable structure with diverse and sometimes conflicting responsibilities.<br> 
+                It must be both strong enough to protect the spinal cord, which connects the brain to the body, and flexible enough to accommodate a wide range of human movements.<br> 
+                Maintaining this delicate balance is where chiropractic care plays a vital role.</p>
+            </div>
+        </div>
+        </div>
+        <div class="section">
+        <div class="slide">
+            <img src="column.gif" alt="Image 5">
+            <div class="slide-content">
+                <p>Nearly 2500 years ago, Hippocrates (who is sometimes called the father of western medicine) said "look to the spine for the cause of disease".<br> 
+                And even today, although we realise that there are many other factors involved, a properly functioning musculoskeletal and nervous system is one of the foundations upon which optimal human movement depend.</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="slide">
+            <img src="chiropractic.gif" alt="Image 6">
+            <div class="slide-content">
+                <p>Chiropractors focus on the musculoskeletal system, particularly the spine and pelvis, using specific spinal manipulations, also known as 'adjustments,' to correct dysfunctions.<br> 
+                These adjustments have two primary effects: mechanical, enhancing joint mobility, and neurological, stimulating sensory receptors that provide vital feedback to the brain and spinal cord.<br> 
+                This stimulation helps reduce muscle spasms, modulate pain sensations, and improve movement, coordination, and posture.<br> 
+                Some people have reported additional benefits, such as better sleep, increased calmness, and improved alertness.</p>
+            </div>
+        </div>
+    </div>
+    <div class="section">
+        <div class="slide">
+            <img src="peony.gif" alt="Image 7">
+            <div class="slide-content">
+                <p>Chiropractic care offers a drug and surgery-free approach to treating joint, bone, and muscle problems and their impact on well-being.<br>
+                Chiropractors prioritise patient-centred care, utilising shared decision-making and tailored communication strategies to meet each patient's unique needs and preferences.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="section">
+        <div class="slide">
+            <img src="open-book.gif" alt="Image 8">
+            <div class="slide-content">
+                <p>Chiropractors receive specialised education to adapt spinal manual therapy to suit patients of different ages and conditions.<br>
+                Chiropractic treatment is based on the scientific understanding that the body is a self-regulating, self-healing organism, controlled by the brain, spinal cord, and nerves throughout the body.</p>
+            </div>
+        </div>
+
+    </div>
+    <div class="section">
+        <div class="slide">
+            <img src="self-love.gif" alt="Image 9">
+            <div class="slide-content">
+                <p>The practice of chiropractic focuses on the relationship between the structure of the body, primarily the spine and pelvis, and its function, as coordinated by the nervous system, to promote and restore health.<br>
+                At Collins Chiropractic, we can assist with various issues, including back pain, joint pain, osteoarthritis-related discomfort, muscle spasms, sporting injuries, headaches, and more.<br> 
+                Our aim is to help you prevent and manage these conditions, promoting a healthier life and comfortable movement.</p>
+            </div>
+        </div>
+        
+
+    </div>
+
+    <div class="section fp-auto-height">
+    <footer>
+    <div class="info-container">
+    
+        <div class="map-container">
+            <!-- Replace with your own iframe code -->
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1338.6857973921653!2d0.7325413575786556!3d51.843625512971656!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8e2ce1310854f%3A0x4df21e180b7d8c00!2sPrested%20Hall%20Health%20Club!5e0!3m2!1sen!2suk!4v1690894188427!5m2!1sen!2suk" width="100%" 
+            height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <div class="address">
+            <p>Collins Chiropractic</p>
+            <p>Prested Hall</p>
+            <p>Health Club</p>
+            <p>Feering</p>
+            <p>Essex</p>
+            <p>CO5 9EE</p>
+            <p>Landline: </p>
+            <p>Mobile: 07926172221</p>
+        </div>
+        <div class="enquiry-form">
+            <form id="myForm" action="https://formspree.io/f/xaygqbpo" method="POST">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Name">
+        
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" placeholder="Email">
+        
+                <label for="enquiry">Enquiry:</label>
+                <textarea id="enquiry" name="message" placeholder="Enquiry"></textarea>
+        
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+        
+    </div>
+    <div class="footer-logos">
+        <img src="BCA.png" alt="BCA logo">
+        <img src="BMAS.png" alt="BMAS logo">
+        <img src="GCC.png" alt="GCC logo">
+        <img src="med.png" alt="Med logo">
+    </div>
+</footer>
+</div>
+        
+      
+    </div>
+    <div id="timeline">
+        <p class="timeline-item" id="Care">Care</p>
+        <p class="timeline-item" id="Mind">Mind</p>
+        <p class="timeline-item" id="Leaf">Support</p>
+        <p class="timeline-item" id="Spine">Spine</p>
+        <p class="timeline-item" id="Column">History</p>
+        <p class="timeline-item" id="Chiropractic">Chiropractic Focus</p>
+        <p class="timeline-item" id="Peony">Natural Approach</p>
+        <p class="timeline-item" id="Open-book">Background</p>
+        <p class="timeline-item" id="Self-love">Health Management</p>
+    </div>
+    
+   
+
+</main>
+
+
+
+<div id="toast" class="hide">Enquiry submitted successfully!</div>
+
+
+<script src="script.js"></script>
+<script type="text/javascript">
+    var sectionKeywords = ['Care', 'Mind', 'Leaf', 'Spine', 'Column', 'Chiropractic', 'Peony', 'Open-book', 'Self-love'];
+
+    new fullpage('#fullpage', {
+        autoScrolling: true,
+        scrollHorizontally: true,
+        footer: 'footer',
+        afterLoad: function(origin, destination, direction){
+            // Remove the 'active' class from all timeline items
+            var timelineItems = document.getElementsByClassName('timeline-item');
+            for(var i = 0; i < timelineItems.length; i++) {
+                timelineItems[i].classList.remove('active');
+            }
+            // Add the 'active' class to the current section's keyword
+            document.getElementById(sectionKeywords[destination.index]).classList.add('active');
+        }
+    });
+
+        // Get all timeline items
+    var timelineItems = document.querySelectorAll('.timeline-item');
+
+    // Add click event listener to each item
+    for (let i = 0; i < timelineItems.length; i++) {
+        timelineItems[i].addEventListener('click', function() {
+            // Move to corresponding section
+            fullpage_api.moveTo(i + 1);
+        });
+    }
+    
+    
+</script>
+</body>
+</html>
