@@ -82,13 +82,17 @@ $("#myForm").submit(function(e) {
 
 
 window.addEventListener('load', function() {
-    document.getElementById('loadingBar').style.width = '100%';
-    setTimeout(function() {
-        document.getElementById('logoScreen').style.opacity = '0';
+    if (!localStorage.getItem('hasVisitedBefore')) {
+        document.getElementById('loadingBar').style.width = '100%';
         setTimeout(function() {
-            document.getElementById('logoScreen').style.display = 'none';
-        }, 1000);
-    }, 2000);
+            document.getElementById('logoScreen').style.opacity = '0';
+            setTimeout(function() {
+                document.getElementById('logoScreen').style.display = 'none';
+            }, 1000);
+        }, 2000);
+        
+        localStorage.setItem('hasVisitedBefore', 'true');
+    }
 });
 
 
@@ -130,6 +134,8 @@ window.addEventListener('scroll', function() {
         aboutSectionReverse.style.zIndex = '1';
     }
 });
+
+
 
 
 

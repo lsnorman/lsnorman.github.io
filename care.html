@@ -22,12 +22,7 @@ Dropdown on chiropractic care:
 
 </head>
 <body>
-<div id="logoScreen">
-    <div id="logoContainer">
-        <img id="logo" src="cclogo.png" alt="Logo">
-        <div id="loadingBar"></div>
-    </div>
-</div>
+
     
 <!-- Navbar -->
 <header id="navbar">
@@ -48,7 +43,7 @@ Dropdown on chiropractic care:
             </li>
               
             <li><a href="#services">SERVICES</a></li>
-            <li><a href="#fees">FEES</a></li>
+            <li><a href="fees.html">FEES</a></li>
         </ul>
     </nav>
     <div class="menu-toggle"><i class="fas fa-bars"></i></div>
@@ -62,6 +57,7 @@ Dropdown on chiropractic care:
         
         <div class="section">
             <div class="slide">
+                <h2>Care</h2>
                 <img src="care.gif" alt="Image 1">
                 <div class="slide-content">
                     <p>At Collins Chiropractic, we understand how pain, whether it&#39;s in your neck, joints, or back, can disrupt your life, limiting your mobility and affecting your overall well-being. <br>Our goal is to work closely with you, identifying the root cause of your pain and creating a personalized treatment plan to provide relief and enhance your body&#39;s natural healing abilities.</p>
@@ -71,6 +67,7 @@ Dropdown on chiropractic care:
         </div>
         <div class="section">
             <div class="slide">
+                <h2>State of Mind</h2>
                 <img src="mind.gif" alt="Image 2">
                 <div class="slide-content">
                     <p>The state of our health can significantly influence our perspective on life.<br> Having an optimally functioning spine brings numerous benefits, such as improved mobility, reduced pain, and greater freedom to engage in the activities you enjoy.</p>
@@ -80,6 +77,7 @@ Dropdown on chiropractic care:
         </div>
         <div class="section">
             <div class="slide">
+                <h2>Supporting Health</h2>
                 <img src="leaf.gif" alt="Image 3">
                 <div class="slide-content">
                     <p>Our health is shaped by various factors, including habits, postures, experiences with trauma and stress, and dietary choices.<br> The good news is that these factors are not fixed and can be positively influenced with appropriate support and encouragement.</p>
@@ -90,7 +88,9 @@ Dropdown on chiropractic care:
         </div>
         <div class="section">
         <div class="slide">
+            <h2>The Spine</h2>
             <img src="spine.gif" alt="Image 4">
+            
             <div class="slide-content">
                 <p>The spine is a remarkable structure with diverse and sometimes conflicting responsibilities.<br> 
                 It must be both strong enough to protect the spinal cord, which connects the brain to the body, and flexible enough to accommodate a wide range of human movements.<br> 
@@ -100,6 +100,7 @@ Dropdown on chiropractic care:
         </div>
         <div class="section">
         <div class="slide">
+            <h2>History</h2>
             <img src="column.gif" alt="Image 5">
             <div class="slide-content">
                 <p>Nearly 2500 years ago, Hippocrates (who is sometimes called the father of western medicine) said "look to the spine for the cause of disease".<br> 
@@ -109,6 +110,7 @@ Dropdown on chiropractic care:
     </div>
     <div class="section">
         <div class="slide">
+            <h2>Chiropractic Focus</h2>
             <img src="chiropractic.gif" alt="Image 6">
             <div class="slide-content">
                 <p>Chiropractors focus on the musculoskeletal system, particularly the spine and pelvis, using specific spinal manipulations, also known as 'adjustments,' to correct dysfunctions.<br> 
@@ -120,6 +122,7 @@ Dropdown on chiropractic care:
     </div>
     <div class="section">
         <div class="slide">
+            <h2>Natural Approach</h2>
             <img src="peony.gif" alt="Image 7">
             <div class="slide-content">
                 <p>Chiropractic care offers a drug and surgery-free approach to treating joint, bone, and muscle problems and their impact on well-being.<br>
@@ -130,6 +133,7 @@ Dropdown on chiropractic care:
     </div>
     <div class="section">
         <div class="slide">
+            <h2>Education and Background</h2>
             <img src="open-book.gif" alt="Image 8">
             <div class="slide-content">
                 <p>Chiropractors receive specialised education to adapt spinal manual therapy to suit patients of different ages and conditions.<br>
@@ -140,6 +144,7 @@ Dropdown on chiropractic care:
     </div>
     <div class="section">
         <div class="slide">
+            <h2>Health Management</h2>
             <img src="self-love.gif" alt="Image 9">
             <div class="slide-content">
                 <p>The practice of chiropractic focuses on the relationship between the structure of the body, primarily the spine and pelvis, and its function, as coordinated by the nervous system, to promote and restore health.<br>
@@ -148,8 +153,10 @@ Dropdown on chiropractic care:
             </div>
         </div>
         
+        
 
     </div>
+    
 
     <div class="section fp-auto-height">
     <footer>
@@ -195,9 +202,11 @@ Dropdown on chiropractic care:
     </div>
 </footer>
 </div>
+
         
       
     </div>
+    
     <div id="timeline">
         <p class="timeline-item" id="Care">Care</p>
         <p class="timeline-item" id="Mind">Mind</p>
@@ -209,7 +218,6 @@ Dropdown on chiropractic care:
         <p class="timeline-item" id="Open-book">Background</p>
         <p class="timeline-item" id="Self-love">Health Management</p>
     </div>
-    
    
 
 </main>
@@ -227,18 +235,48 @@ Dropdown on chiropractic care:
         autoScrolling: true,
         scrollHorizontally: true,
         footer: 'footer',
-        afterLoad: function(origin, destination, direction){
+        afterLoad: function(origin, destination, direction) {
             // Remove the 'active' class from all timeline items
             var timelineItems = document.getElementsByClassName('timeline-item');
-            for(var i = 0; i < timelineItems.length; i++) {
+            for (var i = 0; i < timelineItems.length; i++) {
                 timelineItems[i].classList.remove('active');
             }
+
             // Add the 'active' class to the current section's keyword
             document.getElementById(sectionKeywords[destination.index]).classList.add('active');
+
+            // Conditionally display timeline items based on viewport width
+            adjustTimelineVisibility(destination.index);
         }
     });
 
-        // Get all timeline items
+    function adjustTimelineVisibility(currentIndex) {
+        // If window width is less than 1000px, adjust visibility
+        if (window.innerWidth < 1000) {
+            var timelineItems = document.querySelectorAll('.timeline-item');
+            // Hide all timeline items
+            for (var i = 0; i < timelineItems.length; i++) {
+                timelineItems[i].style.display = 'none';
+            }
+
+            // Show the n-1, n, n+1 items
+            if (currentIndex > 0) { // check if there's a previous item
+                timelineItems[currentIndex - 1].style.display = 'inline-block';
+            }
+            timelineItems[currentIndex].style.display = 'inline-block';
+            if (currentIndex < timelineItems.length - 1) { // check if there's a next item
+                timelineItems[currentIndex + 1].style.display = 'inline-block';
+            }
+        } else {
+            // If width is above 1000px, show all timeline items
+            var timelineItems = document.querySelectorAll('.timeline-item');
+            for (var i = 0; i < timelineItems.length; i++) {
+                timelineItems[i].style.display = 'inline-block';
+            }
+        }
+    }
+
+    // Get all timeline items
     var timelineItems = document.querySelectorAll('.timeline-item');
 
     // Add click event listener to each item
@@ -248,8 +286,20 @@ Dropdown on chiropractic care:
             fullpage_api.moveTo(i + 1);
         });
     }
+
+    // Initial adjustment on page load
+    window.addEventListener('load', function() {
+        adjustTimelineVisibility(sectionKeywords.indexOf(document.querySelector('.timeline-item.active').id));
+    });
+
+    // Adjust timeline items visibility on window resize
+    window.addEventListener('resize', function() {
+        adjustTimelineVisibility(sectionKeywords.indexOf(document.querySelector('.timeline-item.active').id));
+    });
+
     
     
 </script>
+
 </body>
 </html>

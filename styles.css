@@ -11,6 +11,9 @@ padding: 0;
 box-sizing: border-box;
 }
 
+strong {
+    font-weight: normal;
+}
 body {
     font-family: 'Urbanist', sans-serif;
     font-weight: 500;
@@ -20,6 +23,8 @@ body {
 /* =========================
    Header / Navbar Styles
    ========================= */
+
+
 
 #navbar {
     position: fixed;
@@ -134,7 +139,7 @@ body {
   }
 
   
-#logoScreen {
+  #logoScreen {
     position: fixed;
     top: 0;
     left: 0;
@@ -165,12 +170,12 @@ body {
 #logoContainer {
     position: relative;
     height: 200px;
-    width: auto;
+    width: 485px; /* This will ensure the logo container has a defined width */
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
-
 #logo {
     height: 100%;
     width: auto;
@@ -179,14 +184,12 @@ body {
 
 #loadingBar {
     position: absolute;
-    bottom: 48px; /* Adjust this to position the loading bar correctly */
-    left: 50%;
-    transform: translateX(-50%); /* This will center the loading bar */
-    height: 2px; /* Adjust this to change the thickness of the loading bar */
-    background: #c2939a; /* Adjust this to change the color of the loading bar */
+    bottom: 47px;
+    left: 0; /* This makes sure the bar starts from the left edge */
+    height: 2px;
+    background: #c2939a;
     width: 0;
-    max-width: 485px; /* Limit the maximum width of the loading bar */
-    transition: width 3s ease-in-out;
+    transition: width 2s ease-in-out;
     z-index: 2;
 }
 
@@ -398,7 +401,7 @@ body {
     justify-content: space-between;
     align-items: stretch; /* Change this line */
     margin: 20px 0;
-    background-color: #d7d7d7;
+    background-color: #ffffff;
     flex-wrap: wrap;
     padding-top: 100px;
 }
@@ -410,12 +413,14 @@ body {
     justify-content: center; /* Add this line */
     align-items: center; /* Add this line */
     overflow: hidden; /* Add this line */
+    clip-path: polygon(0% 0%, calc(100% - 50px) 0, 100% 50%, calc(100% - 50px) 100%, 0% 100%);
 }
 
 .about-image img {
     min-width: 100%; /* Change this line */
     min-height: 100%; /* Change this line */
     object-fit: cover; /* Change this line */
+    
 }
 
 .about-section.reverse {
@@ -427,6 +432,10 @@ body {
 .about-section.reverse {
     z-index: 1; /* Lower z-index so it's underneath the navbar */
     /* Other styles... */
+}
+.about-section.reverse .about-image {
+    /* Curvature on the left-hand side */
+    clip-path: polygon(50px 0%, 100% 0%, 100% 100%, 50px 100%, 0% 50%);
 }
 
 .about-text {
@@ -448,7 +457,7 @@ body {
     color: #54797F;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .about-section {
         flex-direction: column;
     }
@@ -457,6 +466,10 @@ body {
     .about-text {
         flex: 0 0 100%;
         max-width: 100%;
+    }
+
+    .about-image {
+        clip-path: none; /* Reset the clip-path for smaller screens */
     }
 
     .about-text {
@@ -469,6 +482,154 @@ body {
     }
 }
 
+
+
+/* What to Expect Styles */
+
+#what-to-expect {
+    padding: 2em 0;
+    background-color: #ffffff;
+    box-shadow: none;
+    margin: 0;
+    text-align: center;
+}
+
+#what-to-expect h1 {
+    color: #978185;
+    margin-bottom: 2em;
+}
+
+.card {
+    perspective: 1000px;
+    width: calc(50% - 2em);
+    max-height: 400px;
+    margin: 1em;
+    border-radius: 10px;
+    border: 1px solid #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+    background-color: #ffffff;
+    float: left;
+    overflow: hidden;
+    position: relative;
+}
+
+.card-inner {
+    transform-style: preserve-3d;
+    transition: transform 0.5s;
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+.card:hover .card-inner {
+    transform: rotateY(180deg);
+}
+
+.card-front, .card-back {
+    backface-visibility: hidden;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em;
+    border-radius: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.card-front {
+    background: #ffffff; 
+    z-index: 2;
+    transform: rotateY(0deg);
+    padding-top:100px;
+}
+
+.card-back {
+    background: #ffffff;
+    z-index: 1;
+    transform: rotateY(-180deg); /* This will ensure the back is ready to flip when hovering */
+}
+
+.card-front h2, .card-back h3 {
+    color: #978185;
+    margin-bottom: 1em;
+}
+
+.card-front img {
+    height: 100px;  /* adjust as needed */
+    width: auto;   /* maintain the aspect ratio */
+    max-width: 100%;  /* ensure it doesn't exceed the card width */
+    display: block;  /* remove inline gaps */
+    margin: 0 auto;  /* center the image if it's less than card width */
+    padding-bottom: 10px;
+}
+
+
+.card-back p, .card-back ul, .card-front p, .card-front ul {
+    color: #54797F;
+    padding-left:20px;
+    padding-right: 20px;
+}
+
+@media (max-width: 1000px) {
+    .card {
+        width: 80%;
+        margin: 1em auto;
+        float: none;
+    }
+}
+
+
+/* FEES css */
+
+#fees-section {
+    width: 90%;
+    margin: 2em auto;
+    background-color: #f8f8f8;
+    padding: 2em;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-top: 110px;
+}
+
+#fees-section h2 {
+    text-align: center;
+    color: #978185;
+    margin-bottom: 1.5em;
+    font-weight: 600;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    margin-bottom: 2em;
+}
+
+table th, table td {
+    padding: 0.5em 1em;
+    border-bottom: 1px solid #ddd;
+}
+
+table th {
+    background-color: #e0e0e0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.9em;
+    letter-spacing: 1px;
+}
+
+table td {
+    color: #54797F;
+}
+
+table tr:last-child td {
+    border-bottom: none;
+}
 
 
 
@@ -496,6 +657,9 @@ body {
     height: auto;
     padding-bottom: 20px;
 }
+.slide h2{
+    color: #978185;
+}
 
 .slide-content {
     width: 100%;
@@ -504,51 +668,52 @@ body {
     font-size: 1.1rem;
 }
 #timeline {
-    position: fixed;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    text-align: right;
-    background-color: white;
-    padding: 10px;
-    border-radius: 5px;
+    position: fixed;    /* Change from relative to fixed */
+    bottom: 10px;       /* Push it up a bit from the absolute bottom */
+    left: 50%;          /* Center it horizontally */
+    transform: translateX(-50%);
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    flex-wrap: no-wrap;
+    background-color: white;    /* Optional: Add a background to improve visibility */
+    padding: 5px;       /* Optional: Give it some padding */
+    border-radius: 5px; /* Optional: Round the corners for aesthetics */
+    width: 90%;         /* Optional: Limit the width for better visibility */
+    overflow-x: auto;   /* Optional: In case the items overflow the viewport width, allow them to scroll */
+    z-index: 9999;      /* Optional: Ensure the timeline is above other elements */
 }
 
 .timeline-item {
     position: relative;
-    padding-left: 30px;
-    margin-bottom: 20px;
+    padding-left: 20px;        /* Adjust the left padding to 20px */
+    margin: 0 20px;
     cursor: pointer;
     color: #54797F;
     font-weight: normal;
     transition: all 0.3s ease;
+    display: inline-block;
 }
 
 .timeline-item:before {
-    content: "";
-    position: absolute;
-    left: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 10px; /* reduce this from 15px to 10px */
-    height: 10px; /* reduce this from 15px to 10px */
-    background-color: #54797F;
-    border-radius: 50%;
-    transition: all 0.3s ease; /* add this to animate the color change */
+    display: none;
 }
 
 .timeline-item:after {
     content: "";
     position: absolute;
-    top: 100%;
-    left: 5px; /* reduce this from 7px to 5px to recenter the line */
-    width: 1px;
-    height: 20px;
-    background-color:#54797F;
+    top: 50%;
+    left: calc(100% + 20px);   /* Add 20px to the left side */
+    transform: translateY(-50%);
+    width: 20px;               /* Reduce the width to maintain 20px gap on the right side */
+    height: 1px;
+    background-color: #54797F;
 }
 
+
+
 .timeline-item:last-child:after {
-    display: none;
+    display: none;  /* Prevent the line from displaying after the last item */
 }
 
 .timeline-item.active {
@@ -556,13 +721,10 @@ body {
     font-weight: bold;
 }
 
-.timeline-item.active:before {
-    background-color: rgb(48, 166, 154); /* make the dot turquoise when the item is active */
-}
-
 .timeline-item:hover {
     color: turquoise;
 }
+
 
 .section.fp-auto-height {
     height: auto !important;
@@ -570,17 +732,12 @@ body {
 
 
 
-
-@media (max-width: 900px) { /* adjust this value to the screen width at which you want the timeline to move to the bottom */
-    #timeline {
-        position: fixed;
-        right: unset;
-        bottom: 10px;
-        top: unset;
-        transform: unset;
-        text-align: center;
+@media (max-width: 999px) {
+    .timeline-item {
+        display: none;
     }
 }
+
   
 
 /*WTE HTML */

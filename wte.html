@@ -1,5 +1,6 @@
 <html>
 <head>
+<meta charset="UTF-8">
   <title>Your Website</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
@@ -7,13 +8,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 <body>
-<div id="logoScreen">
-    <div id="logoContainer">
-        <img id="logo" src="cclogo.png" alt="Logo">
-        <div id="loadingBar"></div>
-    </div>
-</div>
-    
+
 <!-- Navbar -->
 <header id="navbar">
     <a href="#" class="logo">
@@ -32,24 +27,113 @@
                 </div>
             </li>
             <li><a href="#services">SERVICES</a></li>
-            <li><a href="#fees">FEES</a></li>
+            <li><a href="fees.html">FEES</a></li>
         </ul>
     </nav>
     <div class="menu-toggle"><i class="fas fa-bars"></i></div>
 </header>
-
-
 <main>
-    <section class="background-image-nav">
-      </section>
+    <section id="what-to-expect">
 
-    <section>
-        <div class='placeholder'> 
-            <h2> placeholder</h2>
+        <h1>What to Expect</h1>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="heart.png" alt="Image for Your First Visit"> <!-- Placeholder image -->
+                    <h2>Your First Visit</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Your First Visit</h3>
+                    <p>Visiting us for the first time? Here's a step-by-step guide on what to expect:</p>
+                    <ul>
+                        <li><strong>Initial Discussion:</strong> Your chiropractor will start with a conversation about your health history, including surgeries, accidents, lifestyle factors, and other details affecting your current health.</li>
+            
+                        <li><strong>Thorough Assessment:</strong> Each patient's case is unique. Your chiropractor will conduct a comprehensive history and examination to create a personalized treatment plan tailored to your needs.</li>
+                        
+                        <li><strong>Physical Examination:</strong> During this examination, your chiropractor will focus on your neuromusculoskeletal system. For your comfort, consider wearing loose, comfortable clothing. If you prefer, you can have a family member or third person present during the treatment.</li>
+                        
+                        <li><strong>Diagnostic Referrals:</strong> If necessary, further studies such as blood tests, x-rays, or MRI can be referred.</li>
+                        
+                        <li><strong>Treatment Explanation:</strong> Before proceeding, you'll be provided a clear explanation of the proposed treatment, potential complications, and you'll have the opportunity to ask any questions.</li>
+                        
+                        <li><strong>First Treatment:</strong> The initial consultation often includes the first treatment session if deemed appropriate.</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <section>
-      
-</main>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="heart.png" alt="Image for Treatment Techniques"> <!-- Placeholder image -->
+                    <h2>Treatment Techniques</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Treatment Techniques</h3>
+                    <p>Chiropractic care utilizes a range of techniques including:</p>
+                    <ul>
+                        <li>Manual therapy</li>
+                        <li>Manipulation (adjustments)</li>
+                        <li>Mobilisation</li>
+                        <li>Exercise rehabilitation</li>
+                        <li>Soft tissue techniques</li>
+                        <li>Medical acupuncture</li>
+                        <li>Ultrasound</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="heart.png" alt="Image for Treatment Duration"> <!-- Placeholder image -->
+                    <h2>Treatment Duration</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Treatment Duration</h3>
+                    <p>The treatment length varies. Typically, 2 to 6 treatments are common, with sessions gradually spaced out. Longer-standing or recurrent problems might need extended treatment. Other therapies might be suggested to enhance the outcome.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="heart.png" alt="Image for Post Treadtment"> <!-- Placeholder image -->
+                    <h2>Post-Treatment</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Post-Treatment</h3>
+                    <ul>
+                        <li><strong>Aftercare Advice:</strong> Supportive advice and home exercises are provided post-treatment.</li>
+                        <li><strong>Maintenance Treatments:</strong> Periodic treatments are available for long-term wellness, often shorter in duration.</li>
+                        <li><strong>Recovery Guidance:</strong> Temporary symptoms like soreness may occur post-treatment. Your chiropractor will guide you through the recovery process.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-inner">
+                <div class="card-front">
+                    <img src="heart.png" alt="Image for Additional Resources"> <!-- Placeholder image -->
+                    <h2>Additional Resources</h2>
+                </div>
+                <div class="card-back">
+                    <h3>Additional Resources</h3>
+                    <ul>
+                        <li><a href="https://www.gcc-uk.org/assets/downloads/GCC_Patient_Checklist_January_2022.pdf">Patient Checklist GCC</a></li>
+                        <li><a href="https://www.gcc-uk.org/patient-portal">What to Expect GCC</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+</main>     
+
 <footer>
     <div class="info-container">
     
@@ -98,5 +182,6 @@
 
 
 <script src="script.js"></script>
+
 </body>
 </html>
