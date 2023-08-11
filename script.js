@@ -1,4 +1,4 @@
-const menuToggle = document.querySelector('.menu-toggle');
+let menuToggle = document.querySelector('.menu-toggle');
 const nav = document.querySelector('.nav');
 
 menuToggle.addEventListener('click', () => {
@@ -15,12 +15,23 @@ closeMenu.addEventListener('click', () => {
 });
 
 
-//testimonial slider 
 document.addEventListener("DOMContentLoaded", function() {
     const sliderContainer = document.querySelector('.slides-container');
+
+    // Exit the function early if the main slider container isn't present
+    if (!sliderContainer) {
+        return;
+    }
+
     const slides = Array.from(sliderContainer.children);
     const nextButton = document.querySelector('#nextBtn');
     const prevButton = document.querySelector('#prevBtn');
+
+    // Exit the function if either button isn't found
+    if (!nextButton || !prevButton) {
+        console.error("One of the slider buttons is missing!");
+        return;
+    }
 
     let currentIndex = 0;
 
@@ -38,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function() {
         sliderContainer.style.left = '-' + (currentIndex * 100) + '%';
     }
 });
+
 
 
 $("#myForm").submit(function(e) {
@@ -96,51 +108,42 @@ window.addEventListener('load', function() {
 });
 
 
-window.addEventListener('scroll', function() {
-    var scrollPosition = window.scrollY;
-    var sloganAndButton = document.querySelector('.slogan-and-button');
-    var testimonialSection = document.querySelector('.testimonial-slider');
 
-    if (scrollPosition > 0) {
-        sloganAndButton.style.position = 'fixed';
-        sloganAndButton.style.top = '0';
-        sloganAndButton.style.left = '0';
-        sloganAndButton.style.right = '0';
-        sloganAndButton.style.zIndex = '0'; // Add this line
-    } else {
-        sloganAndButton.style.position = 'relative';
-    }
+$(document).ready(function() {
+    $(window).scroll(function() {
+        var scrollPosition = window.scrollY;
 
-    if (scrollPosition > testimonialSection.offsetTop) {
-        sloganAndButton.style.zIndex = '-1'; // Change this line
-    } else {
-        sloganAndButton.style.zIndex = '0'; // Change this line
-    }
+
+        var scrollPosition = $(this).scrollTop();
+        var videoSectionHeight = $('.vid-section').height();
+
+        var threshold = videoSectionHeight - window.innerHeight; // Adjust when to start the sticky effect
+
+        var sloganAndButton = $('.slogan-and-button');
+
+        // Logic for .slogan-and-button
+        if (scrollPosition > threshold) {
+            sloganAndButton.addClass('sticky');
+        } else {
+            sloganAndButton.removeClass('sticky');
+        }
+        // Logic for .about-section
+        var aboutSection = document.querySelector('.about-section');
+        var aboutSectionReverse = document.querySelector('.about-section.reverse');
+        if (aboutSection && aboutSectionReverse) {
+            var aboutSectionBottom = aboutSection.getBoundingClientRect().bottom;
+            if (aboutSectionBottom <= 0) {
+                aboutSection.style.zIndex = '1';
+                aboutSectionReverse.style.zIndex = '2';
+            } else {
+                aboutSection.style.zIndex = '2';
+                aboutSectionReverse.style.zIndex = '1';
+            }
+        }
+
+        
+    });
 });
-
-
-window.addEventListener('scroll', function() {
-    var aboutSection = document.querySelector('.about-section');
-    var aboutSectionReverse = document.querySelector('.about-section.reverse');
-
-    var aboutSectionBottom = aboutSection.getBoundingClientRect().bottom;
-    var aboutSectionReverseTop = aboutSectionReverse.getBoundingClientRect().top;
-
-    if (aboutSectionBottom <= 0) {
-        aboutSection.style.zIndex = '1';
-        aboutSectionReverse.style.zIndex = '2';
-    } else {
-        aboutSection.style.zIndex = '2';
-        aboutSectionReverse.style.zIndex = '1';
-    }
-});
-
-
-
-
-
-
-
 
 
 

@@ -67,7 +67,7 @@ body {
 }
 
 .nav ul li a {
-    color: #ffffff;
+    color: #DAE3DA;
     font-weight: 500;
     text-decoration: none;
     transition: transform 0.5s ease;
@@ -82,7 +82,7 @@ body {
     font-weight: 500;
     width: 0;
     height: 2px;
-    background: #f8f8f8;
+    background: #DAE3DA;
     transition: width .3s;
     position: absolute;
     bottom: -5px;
@@ -91,7 +91,7 @@ body {
 
 .nav ul li a:not(.a-exc):hover {
     transform: scale(1.1);
-    color: #fdfdfd
+    color: #DAE3DA;
 }
 
 .nav ul li a:not(.a-exc):hover::after {
@@ -148,7 +148,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('background.jpg');
+    background-color: #54797F;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -158,7 +158,7 @@ body {
 
 #logoScreen::before {
     content: "";
-    background: rgba(0, 0, 0, 0.6);
+    background: rgba(0, 0, 0, 0.0);
     position: absolute;
     top: 0;
     left: 0;
@@ -205,85 +205,95 @@ body {
 
    
 
-  .background-image {
-    background-image: url('background.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    min-height: 800px; /* adjust as necessary */
-    width: 100%;
-    position: relative;
-    z-index: -2; /* Add this line */
-  }
-  
-  .background-image::before {
-    content: "";
-    background: rgba(0, 0, 0, 0.6); /* Overlay color with some transparency */
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* Make sure it overlays the background image */
-  }
+  /* ... Other parts of your CSS ... */
 
-  .background-image-nav{
-    background-image: url('background.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100px; /* adjust as necessary */
+/* ========= Video Section ========= */
+/* ... Other parts of your CSS ... */
+
+.vid-section {
+    position: relative;
+    height: 800px;
     width: 100%;
-    position: fixed; /* Add this line */
+    overflow: hidden;
+}
+
+.vid {
+    position: absolute; 
     top: 0;
-  }
-  .background-image-nav::before {
-    content: "";
-    background: rgba(0, 0, 0, 0.6); /* Overlay color with some transparency */
+    left: 50%;  /* Changed to center the video on the section */
+    transform: translateX(-50%);  /* Translate only horizontally */
+    height: 100%;  /* This keeps the height constant */
+    width: auto;  /* Allows the width to adjust freely */
+    z-index: -2; 
+}
+
+.vid video {
+    min-width: 100%;  /* Let's video pick its natural width */
+    height: 100%;  /* Force the height to always match the container */
+    object-fit: cover;  /* This will ensure the video covers the entire container */
+    z-index: -2;
+}
+
+.vid-overlay {
     position: absolute;
+    content: "";
+    background: rgba(0, 0, 0, 0.6);
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1; /* Make sure it overlays the background image */
+    z-index: -1; 
+}
+
+.slogan-and-button {
+    position: absolute;
     top: 0;
-  }
-  
-  
-  .slogan-and-button {
-    position: relative;
-    z-index: 2; /* Make sure it overlays the overlay :) */
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 800px; /* Adjust to the height of the background-image */
-    color: #ffffff; /* Change text color to white */
-    text-align: center; /* Center text */
-  }
-  
-  .slogan {
+    color: #DAE3DA;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+/* ... Rest of your styles ... */
+
+
+/* ... Rest of your styles ... */
+
+
+
+
+
+.slogan {
     font-size: 3em;
-    font-weight: 400; /* Make text thinner, assuming your font supports it */
+    font-weight: 400;
     margin-bottom: 20px;
     font-family: 'Julius Sans One', sans-serif;
-  }
-  
-  .book-now {
+}
+
+.book-now {
     border: none;
     background: #C6A9AE;
     color: white;
     font-size: 1.2em;
     padding: 10px 20px;
+    border-radius: 15px;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
     cursor: pointer;
-    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out; /* Add transform to transitions */
-    border-radius: 15px; /* Rounded corners */
-  }
-  
-  .book-now:hover {
+}
+
+.book-now:hover {
     background: #978185;
-    transform: scale(1.1); /* Scale size up by 10% on hover */
-  }
+    transform: scale(1.1);
+}
+
+/* ... Other parts of your CSS ... */
 
   
   
@@ -316,7 +326,7 @@ body {
     text-align: center;
     padding: 70px;
     box-sizing: border-box;
-    background-color: #f9f9f9;
+    background-color: #efefef;
     border-radius: 10px;
 }
 
@@ -598,7 +608,8 @@ body {
 
 #fees-section h2 {
     text-align: center;
-    color: #978185;
+    font-family: 'Julius Sans One', sans-serif;
+    color: #ac9296;
     margin-bottom: 1.5em;
     font-weight: 600;
 }
@@ -616,8 +627,11 @@ table th, table td {
 }
 
 table th {
-    background-color: #e0e0e0;
-    font-weight: 600;
+    background-color: #54797F;
+    font-style: bold;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.1rem;
+    color: #DAE3DA;
     text-transform: uppercase;
     font-size: 0.9em;
     letter-spacing: 1px;
@@ -629,6 +643,58 @@ table td {
 
 table tr:last-child td {
     border-bottom: none;
+}
+
+/* fees.css */
+
+.main-services {
+    height: 80%;
+    overflow-x: hidden;
+    padding-top:120px;
+    
+}
+
+.main-services .content-section {
+    min-height: 20vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+    opacity: 0.9;
+    transition: opacity 1s;
+    padding-top: 10px;
+}
+
+.main-services .content {
+    width: 80%;
+    max-width: 1000px;
+    padding: 40px;
+    background-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    opacity: 0.9;  /* set initial opacity to 0.3 for all content */
+    transition: opacity 0.5s;
+}
+
+.main-services .content-section:hover {
+    transform: scale(1.02);
+    opacity: 1;
+    transition: ease 0.5s;
+}
+
+.main-services h2 {
+    margin-top: 0;
+    z-index: 3;
+    color: #978185;
+}
+.main-services p{
+    padding-top: 10px;
+    color: #47666b;
+
+
 }
 
 
@@ -799,6 +865,7 @@ table tr:last-child td {
     justify-content: center;
     align-items: center;
     padding: 0 10px;
+    color: #DAE3DA;
 }
 
 .enquiry-form {
