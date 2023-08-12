@@ -949,7 +949,7 @@ table tr:last-child td {
 }
 
 /* Responsive design */
-@media (max-width: 768px) {
+@media (max-width: 1000px) {
     .info-container {
         flex-direction: column;
     }
