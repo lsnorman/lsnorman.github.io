@@ -46,8 +46,8 @@ body {
     margin-left: 30px;
 }
 #navbar .logo img {
-    height: 75px; /* adjust as necessary */
-    width: auto; /* maintain aspect ratio */
+    height: auto; /* adjust as necessary */
+    width: 50mm; /* maintain aspect ratio */
 }
 
 #navbar .nav {
@@ -304,7 +304,7 @@ body {
     background: #C6A9AE;
     color: white;
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
-    padding: 5px 15px;  /* Example: Slightly smaller padding */
+    padding: 5px 15px; 
     border-radius: 8px;
     font-size: 1em;
     cursor: pointer;
@@ -312,8 +312,8 @@ body {
 }
 
 .nav .nav-book-now .book-now:hover {
-    transform: none; /* or you can set a specific transform if desired */
-    color: inherit; /* Resetting color. You can set a specific color if desired */
+    transform: none; 
+    color: inherit;
     background: #978185;
     transform: scale(1.1);
 }
@@ -392,7 +392,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: rgba(0,0,0,0.5);
+  background-color: #C6A9AE;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -450,8 +450,9 @@ body {
 }
 
 .about-image {
-    flex: 0 0 40%;
-    max-width: 40%;
+    
+    flex: 0 0 20%;
+    max-width: 20%;
     display: flex; /* Add this line */
     justify-content: center; /* Add this line */
     align-items: center; /* Add this line */
@@ -486,8 +487,8 @@ body {
 }
 
 .about-text {
-    flex: 0 0 60%;
-    max-width: 60%; /* Add this line */
+    flex: 0 0 80%;
+    max-width: 80%; /* Add this line */
     padding: 20px;
 }
 
@@ -551,6 +552,7 @@ body {
     height: 300px; /* This gives space to the card. Adjust as needed based on your content. */
     float: left; /* This will make sure two cards are in the same row */
     transition: 0.3s; /* Smooth transition for hover effects */
+    
 }
 
 /* Styling for the front and back of the cards */
@@ -565,6 +567,7 @@ body {
     justify-content: center;
     flex-direction: column;
     transition: opacity 0.5s; /* Fade transition */
+    background-color: #DAE3DA;
 }
 
 .card-back {
@@ -601,7 +604,7 @@ footer {
 
 /* This is optional, for a better visual effect */
 .card-front {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: #DAE3DA;
 }
 
 .wte h1, .wte h2, .wte h3, .wte h4, .wte h5, .wte h6 {
@@ -989,7 +992,7 @@ table tr:last-child td {
     width: 100px;
     justify-content: center;
     font-size: 16px;
-    background-color: rgb(89, 117, 172);
+    background-color: #C6A9AE;
     color: white;
     border: none;
     border-radius: 5px;
@@ -999,7 +1002,7 @@ table tr:last-child td {
 
 .enquiry-form button:hover {
     transform: scale(1.1); /* increases size of the button */
-    background-color: rgb(63, 93, 136); /* darkens the button color */
+    background-color: #a28a8e; /* darkens the button color */
 }
 
 
