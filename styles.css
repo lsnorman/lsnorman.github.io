@@ -228,11 +228,12 @@ body {
 }
 
 .vid video {
-    min-width: 100%;  /* Let's video pick its natural width */
-    height: 100%;  /* Force the height to always match the container */
-    object-fit: cover;  /* This will ensure the video covers the entire container */
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: -2;
 }
+
 
 .vid-overlay {
     position: absolute;
@@ -286,12 +287,41 @@ body {
     border-radius: 15px;
     transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .book-now:hover {
     background: #978185;
     transform: scale(1.1);
 }
+
+/* NAV BOOK NOW */
+
+.nav .nav-book-now .book-now {
+    /* These styles will override the general .book-now styles when within the nav */
+    font-family: 'Urbanist', sans-serif;
+    font-weight: 500;
+    background: #C6A9AE;
+    color: white;
+    transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+    padding: 5px 15px;  /* Example: Slightly smaller padding */
+    border-radius: 8px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.nav .nav-book-now .book-now:hover {
+    transform: none; /* or you can set a specific transform if desired */
+    color: inherit; /* Resetting color. You can set a specific color if desired */
+    background: #978185;
+    transform: scale(1.1);
+}
+
+.nav .nav-book-now .book-now:hover::after {
+    width: 0;
+}
+
 
 /* ... Other parts of your CSS ... */
 
@@ -404,14 +434,17 @@ body {
 
 
 
+.main-about {
 
+    background-color: #efefef;
+}
 
 .about-section {
     display: flex;
     justify-content: space-between;
     align-items: stretch; /* Change this line */
     margin: 20px 0;
-    background-color: #ffffff;
+    background-color: #efefef;
     flex-wrap: wrap;
     padding-top: 100px;
 }
@@ -423,7 +456,9 @@ body {
     justify-content: center; /* Add this line */
     align-items: center; /* Add this line */
     overflow: hidden; /* Add this line */
-    clip-path: polygon(0% 0%, calc(100% - 50px) 0, 100% 50%, calc(100% - 50px) 100%, 0% 100%);
+    
+    
+    border-radius: 0 20% 20% 0;  /* Adjust this to achieve desired curvature */
 }
 
 .about-image img {
@@ -445,7 +480,9 @@ body {
 }
 .about-section.reverse .about-image {
     /* Curvature on the left-hand side */
-    clip-path: polygon(50px 0%, 100% 0%, 100% 100%, 50px 100%, 0% 50%);
+
+    border-radius: 20% 0 0 20%;  /* Adjust this to achieve desired curvature */
+    
 }
 
 .about-text {
@@ -457,6 +494,7 @@ body {
 .about-text h2 {
     font-size: 2em;
     margin-bottom: 10px;
+    font-family: 'Julius Sans One', sans-serif;
     color: #978185;
 }
 
@@ -476,6 +514,7 @@ body {
     .about-text {
         flex: 0 0 100%;
         max-width: 100%;
+        border-radius: 0; /* Remove border-radius effect */
     }
 
     .about-image {
@@ -489,113 +528,110 @@ body {
     .about-image img {
         width: 100%; /* Change this line */
         height: auto; /* Change this line */
+        border-radius: 0; /* Remove border-radius effect */
     }
+    .about-section.reverse .about-image {
+        border-radius: 0;
+    }
+    
 }
 
 
-
-/* What to Expect Styles */
-
-#what-to-expect {
-    padding: 2em 0;
-    background-color: #ffffff;
-    box-shadow: none;
-    margin: 0;
-    text-align: center;
+.wte {
+    margin-top: 110px;
 }
-
-#what-to-expect h1 {
-    color: #978185;
-    margin-bottom: 2em;
-}
-
+/* Basic styling for cards and their inner content */
 .card {
-    perspective: 1000px;
-    width: calc(50% - 2em);
-    max-height: 400px;
-    margin: 1em;
-    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
-    background-color: #ffffff;
-    float: left;
-    overflow: hidden;
-    position: relative;
+    width: calc(50% - 10px); /* 50% for two cards in a row, minus a little for margin */
+    margin: 5px; /* Small margin around cards */
+    overflow: hidden; /* Ensure content does not spill outside the card */
+    position: relative; /* To position the front and back absolutely inside */
+    height: 300px; /* This gives space to the card. Adjust as needed based on your content. */
+    float: left; /* This will make sure two cards are in the same row */
+    transition: 0.3s; /* Smooth transition for hover effects */
 }
 
-.card-inner {
-    transform-style: preserve-3d;
-    transition: transform 0.5s;
-    width: 100%;
-    height: 100%;
-    position: relative;
-}
-
-
-.card:hover .card-inner {
-    transform: rotateY(180deg);
-}
-
+/* Styling for the front and back of the cards */
 .card-front, .card-back {
-    backface-visibility: hidden;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    padding: 1em;
-    border-radius: 10px;
     position: absolute;
     top: 0;
     left: 0;
-}
-
-.card-front {
-    background: #ffffff; 
-    z-index: 2;
-    transform: rotateY(0deg);
-    padding-top:100px;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    transition: opacity 0.5s; /* Fade transition */
 }
 
 .card-back {
-    background: #ffffff;
-    z-index: 1;
-    transform: rotateY(-180deg); /* This will ensure the back is ready to flip when hovering */
+    opacity: 0; /* Hide the card back by default */
+    padding: 20px;
+    justify-content: flex-start;
+}
+
+/* Hover effect to show card back */
+.card:hover .card-front {
+    opacity: 0;
+}
+
+.card:hover .card-back {
+    opacity: 1;
+}
+
+/* Image & Title styling */
+.card-front img {
+    width: 80px; /* You can adjust this as needed */
+    margin-bottom: 20px;
 }
 
 .card-front h2, .card-back h3 {
-    color: #978185;
-    margin-bottom: 1em;
+    text-align: center;
 }
 
-.card-front img {
-    height: 100px;  /* adjust as needed */
-    width: auto;   /* maintain the aspect ratio */
-    max-width: 100%;  /* ensure it doesn't exceed the card width */
-    display: block;  /* remove inline gaps */
-    margin: 0 auto;  /* center the image if it's less than card width */
-    padding-bottom: 10px;
+/* Adjustments for the footer to ensure it's visible */
+footer {
+    margin-top: 20px;
+    padding: 20px 0;
+    clear: both; /* Clear the float */
 }
 
+/* This is optional, for a better visual effect */
+.card-front {
+    background-color: rgba(255, 255, 255, 0.8);
+}
 
-.card-back p, .card-back ul, .card-front p, .card-front ul {
+.wte h1, .wte h2, .wte h3, .wte h4, .wte h5, .wte h6 {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #ac9296;
+    padding-bottom: 15px;
+}
+
+/* Styling for paragraph text inside .wte */
+.wte p, .wte li, .wte ul {
     color: #54797F;
-    padding-left:20px;
-    padding-right: 20px;
+    text-align: left;
 }
 
-@media (max-width: 1000px) {
+/* Responsive stacking for smaller screens */
+@media (max-width: 1300px) {
     .card {
-        width: 80%;
-        margin: 1em auto;
-        float: none;
+        width: 100%;
     }
 }
+
+
+
 
 
 /* FEES css */
 
+.main-fees{
+    height:800px;
+}
 #fees-section {
     width: 90%;
     margin: 2em auto;
@@ -648,10 +684,10 @@ table tr:last-child td {
 /* fees.css */
 
 .main-services {
+    width: 100vw;  /* Ensures the main-services div covers the entire viewport width */
     height: 80%;
     overflow-x: hidden;
-    padding-top:120px;
-    
+    padding-top: 120px;
 }
 
 .main-services .content-section {
@@ -666,17 +702,40 @@ table tr:last-child td {
     opacity: 0.9;
     transition: opacity 1s;
     padding-top: 10px;
+    width: 100%;
 }
 
 .main-services .content {
-    width: 80%;
-    max-width: 1000px;
+    width: 95vw;  /* Ensures the content div covers the entire viewport width */
+    max-width: none;  /* Removes the maximum width restriction */
     padding: 40px;
     background-color: rgba(255, 255, 255, 0.8);
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
-    opacity: 0.9;  /* set initial opacity to 0.3 for all content */
+    opacity: 0.9;
     transition: opacity 0.5s;
+    display: flex;
+    flex-wrap: wrap;  /* Allows the content to wrap below the image on smaller screens */
+    align-items: center;  /* Centers items vertically */
+    justify-content: space-between;  /* Pushes content and image to opposite sides */
+    gap: 20px;  /* Spacing between wrapped content */
+}
+
+.main-services .content-text {
+    flex: 1;  /* Allows the text container to take up the available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* Vertically centers the content within */
+}
+
+.main-services .content-image {
+    width: calc(20vh - 80px);  /* Ensures that the image is square and smaller than the content-section */
+    height: calc(20vh - 80px);  /* Same as width to maintain square shape */
+    border-radius: 50%;  /* Turns it into a circle */
+    object-fit: cover;  /* Ensures the image scales correctly */
+    margin-left: 20px;  /* Spacing between text and the image */
+    align-self: center;  /* Vertically centers the image */
+    flex-shrink: 0;  /* Prevents the image from shrinking */
 }
 
 .main-services .content-section:hover {
@@ -687,14 +746,17 @@ table tr:last-child td {
 
 .main-services h2 {
     margin-top: 0;
+    font-family: 'Julius Sans One', sans-serif;
     z-index: 3;
     color: #978185;
 }
-.main-services p{
+
+.main-services p {
     padding-top: 10px;
     color: #47666b;
-
-
+}
+.main-services .content-section:hover .content-image {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -725,6 +787,7 @@ table tr:last-child td {
 }
 .slide h2{
     color: #978185;
+    font-family: 'Julius Sans One', sans-serif;
 }
 
 .slide-content {
@@ -867,6 +930,13 @@ table tr:last-child td {
     padding: 0 10px;
     color: #DAE3DA;
 }
+.address p:last-child {
+    margin-bottom: 20px;
+}
+
+.address a {
+    color: #DAE3DA;
+}
 
 .enquiry-form {
     flex: 0.3; /* Adjust this for your 30% width for form */
@@ -933,21 +1003,46 @@ table tr:last-child td {
 }
 
 
-
 .footer-logos {
     display: flex;
+    flex-wrap: wrap; /* Allow the logos to wrap to the next line if there's no space */
     justify-content: space-between;
     align-items: center;
-    width: 100%; /* adjust this value as needed */
-    margin: 0 auto; /* center the logos container */
-    padding: 20px; /* space around the logos */
-    background-color: #DAE3DA; /* background color for the logos container */
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #DAE3DA;
 }
 
+
+
+
 .footer-logos img {
-    height: 100px; /* adjust this value to get your desired height */
+    height: 80px;
     width: auto;
+    max-width: 100%;  /* Ensure the logos don't overflow their containers */
+    margin: 5px;
 }
+
+/* For viewports less than 1500px but more than 1000px */
+@media (min-width: 1001px) and (max-width: 1500px) {
+    .footer-logos {
+        justify-content: center;
+    }
+    .footer-logos img {
+        /* Half the container width minus the margin. */
+        max-width: calc(50% - 10px);
+    }
+}
+
+/* For viewports less than 1000px */
+@media (max-width: 1000px) {
+    .footer-logos img {
+        /* The logos can take up to the full width of the container but won't stretch due to 'width: auto' */
+        max-width: 100%;
+    }
+}
+
 
 #toast {
     visibility: hidden;
@@ -1044,6 +1139,14 @@ table tr:last-child td {
     .menu-toggle.active {
         color: #fff; /* Change color when active or add any other styles */
     }
+    .dropdown {
+        padding-top: 0;      /* Override the top padding */
+        padding-bottom: 0;   /* Override the bottom padding */
+    }
+    .dropdown-content {
+        margin-top: 0; /* Or you can reduce this value based on your design needs */
+    }
+
 }
 
 

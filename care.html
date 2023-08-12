@@ -18,6 +18,8 @@ Dropdown on chiropractic care:
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
 <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"></script>
+
 
 
 </head>
@@ -41,9 +43,9 @@ Dropdown on chiropractic care:
                     <a href="wte.html" class='a-exc'>What to Expect</a>
                 </div>
             </li>
-              
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="fees.html">FEES</a></li>
+            <li class="nav-book-now"><a href="https://collinschiropractic.janeapp.co.uk" class="book-now">Book Now</a></li> <!-- Add a class to the li -->
         </ul>
     </nav>
     <div class="menu-toggle"><i class="fas fa-bars"></i></div>
@@ -158,7 +160,9 @@ Dropdown on chiropractic care:
             <p>Essex</p>
             <p>CO5 9EE</p>
             <p>Landline: </p>
-            <p>Mobile: 07926172221</p>
+            <p style="margin-bottom: 20px;">Mobile: 07926172221</p>
+            <p><a href="privacy_policy.html">Privacy Policy</a></p>
+
         </div>
         <div class="enquiry-form">
             <form id="myForm" action="https://formspree.io/f/xaygqbpo" method="POST">
@@ -210,25 +214,41 @@ Dropdown on chiropractic care:
 <script src="script.js"></script>
 <script type="text/javascript">
     var sectionKeywords = ['Care', 'Leaf', 'Spine', 'Column', 'Chiropractic', 'Open-book', 'Self-love'];
-
+    var generalBottomMargin = 20;
     new fullpage('#fullpage', {
         autoScrolling: true,
         scrollHorizontally: true,
-        footer: 'footer',
         afterLoad: function(origin, destination, direction) {
             // Remove the 'active' class from all timeline items
             var timelineItems = document.getElementsByClassName('timeline-item');
             for (var i = 0; i < timelineItems.length; i++) {
                 timelineItems[i].classList.remove('active');
             }
-
+    
             // Add the 'active' class to the current section's keyword
-            document.getElementById(sectionKeywords[destination.index]).classList.add('active');
-
+            if(sectionKeywords[destination.index]) {
+                document.getElementById(sectionKeywords[destination.index]).classList.add('active');
+            }
+    
+            // Adjust the timeline's position when user reaches the footer
+            var footerHeight = destination.item.offsetHeight;
+            if(destination.isLast) {
+                document.getElementById('timeline').style.bottom = (footerHeight + generalBottomMargin) + 'px';  // Adjusted this line
+            } else {
+                document.getElementById('timeline').style.bottom = generalBottomMargin + 'px';  // Adjusted this line
+            }
+    
             // Conditionally display timeline items based on viewport width
             adjustTimelineVisibility(destination.index);
         }
     });
+    
+    // ... rest of the code remains unchanged ...
+    
+
+    
+    // ... rest of the code remains unchanged ...
+    
 
     function adjustTimelineVisibility(currentIndex) {
         // If window width is less than 1000px, adjust visibility

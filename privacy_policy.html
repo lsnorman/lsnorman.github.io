@@ -1,20 +1,17 @@
 <html>
 <head>
+<meta charset="UTF-8">
   <title>Your Website</title>
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script src="script.js" defer></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
 </head>
 <body>
-<div id="logoScreen" style="display: none;">
-    <div id="logoContainer">
-        <img id="logo" src="cclogo-nobg.png" alt="Logo">
-        <div id="loadingBar"></div>
-    </div>
-</div>
 
-    
 <!-- Navbar -->
 <header id="navbar">
     <a href="#" class="logo">
@@ -34,56 +31,30 @@
             </li>
             <li><a href="services.html">SERVICES</a></li>
             <li><a href="fees.html">FEES</a></li>
+            <li class="nav-book-now"><a href="https://collinschiropractic.janeapp.co.uk" class="book-now">Book Now</a></li> <!-- Add a class to the li -->
         </ul>
     </nav>
     <div class="menu-toggle"><i class="fas fa-bars"></i></div>
 </header>
+<main class='main-services'>
 
-<main>
-    <section class="vid-section">
-        <video autoplay muted loop id="myVideo" class="vid">
-            <source src="vid.mp4" type="video/mp4">
-        </video>
-        <div class="vid-overlay"></div> <!-- Added a new div for overlay -->
-        <div class="slogan-and-button">
-            <h1 class="slogan">Embark on Your Wellness Journey with Collins Chiropractic</h1>
-            <a href="https://collinschiropractic.janeapp.co.uk" class="book-now">Book Now</a>
+    <section class="content-section" id="section1">
+        <div class="content">
+            <h2>Privacy Policy</h2>
+            <p>
+               Pricacy Policy, a modern adaptation of traditional acupuncture, offers several benefits for musculoskeletal problems. It involves the insertion<br>
+                of thin needles into specific points on the body to stimulate nerves, muscles, and connective tissues. Firstly, it helps relieve pain by triggering the release of<br>
+                natural painkillers like endorphins and promoting blood flow to the affected areas, reducing inflammation and enhancing tissue healing. Secondly, it can relax<br>
+                tight muscles and alleviate muscle spasms, improving flexibility and range of motion. Moreover, acupuncture has been shown to modulate the central<br>
+                nervous system, reducing sensitivity to pain and promoting a sense of relaxation and well-being. It can complement other treatment modalities in managing<br>
+                conditions like back pain, neck pain, osteoarthritis, and sports injuries, making it a valuable option in the management of musculoskeletal issues.
+                </p> 
         </div>
     </section>
     
-      <!-- Testimonial Section -->
-<div class="testimonial-slider">
-    <button id="prevBtn"><i class="fas fa-arrow-left"></i></button>
-    <div class="slides-container">
-        <div class="testimonial-slide active">
-            <img src="testimonial1.png" alt="Testimonial 1">
-            <div class="testimonial-text">“I initially sought treatment with Rebekah for long term back and hip pain. Her assessment was thorough, professional and she was easy to
-                communicate with. I am happy to say treatment has resulted in a pain free back and hip. More recently she has used acupuncture during treatments
-                and I believe this has reduced my hay fever symptoms, an arthritic/aching knee and my headaches. Her expertise and holistic approach have given me
-                greater freedom of movement, reduced pain in my body and assisted in recovery from long- and short-term injuries/niggles. She has given me advice,
-                exercises and knowledge to help me manage my body and its pain. I can confidently say I am now more aware of my wellbeing and my body’s ability to
-                heal than ever before. I would highly recommend Rebekah”</div>
-            <p class="testimonial-author"> NM, personal trainer and ultramarathon runner</p>
-        </div>
-    
-        <div class="testimonial-slide">
-            <img src="testimonial2.png" alt="Testimonial 2">
-            <div class="testimonial-text">"Amazing experience! I'd recommend them to anyone."</div>
-            <p class="testimonial-author">- Satisfied Client</p>
-        </div>
-    
-        <div class="testimonial-slide">
-            <img src="testimonial3.png" alt="Testimonial 3">
-            <div class="testimonial-text">"Fantastic service and friendly staff. Five stars!"</div>
-            <p class="testimonial-author">- Pleased Customer</p>
-        </div>
-    </div>
-    <button id="nextBtn"><i class="fas fa-arrow-right"></i></button>
-    </div>
-    
-  
-      
-</main>
+   
+</main>     
+
 <footer>
     <div class="info-container">
     
@@ -132,13 +103,7 @@
 
 <div id="toast" class="hide">Enquiry submitted successfully!</div>
 
-
-<script src="script.js"></script>
-<script>
-    if (!localStorage.getItem('hasVisitedBefore')) {
-        document.getElementById('logoScreen').style.display = 'flex'; // Change this to the display type you're using
-    }
-</script>
+  
 
 </body>
 </html>

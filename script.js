@@ -145,5 +145,43 @@ $(document).ready(function() {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+    const vidSection = document.querySelector('.vid-section');
+    const video = document.getElementById('myVideo');
+
+    if (video && vidSection) {
+        video.addEventListener('loadedmetadata', adjustVideoDimensions);
+        window.addEventListener('resize', adjustVideoDimensions);
+
+        function adjustVideoDimensions() {
+            const sectionRatio = vidSection.clientWidth / vidSection.clientHeight;
+            const videoRatio = video.videoWidth / video.videoHeight;
+
+            if (sectionRatio > videoRatio) {
+                video.style.width = '100%';
+                video.style.height = 'auto';
+            } else {
+                video.style.width = 'auto';
+                video.style.height = '100%';
+            }
+        }
+    }
+});
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    var dropdown = document.querySelector('.dropdown');
+    
+    dropdown.addEventListener('click', function(event) {
+        var dropdownContent = this.querySelector('.dropdown-content');
+        
+        if (window.innerWidth <= 768) { // Only do this for screens <= 768px
+            if (dropdownContent.style.display === 'block') {
+                dropdownContent.style.display = 'none';
+            } else {
+                dropdownContent.style.display = 'block';
+            }
+            event.preventDefault(); // Prevent default link action
+        }
+    });
+});
