@@ -268,13 +268,17 @@ body {
 /* ... Rest of your styles ... */
 
 
-
+.logo-slogan{
+    height: 270px;
+    width: auto;
+    padding-bottom: 50px;
+}
 
 
 .slogan {
     font-size: 3em;
     font-weight: 400;
-    margin-bottom: 20px;
+    margin-bottom: 50px;
     font-family: 'Julius Sans One', sans-serif;
 }
 
@@ -392,7 +396,7 @@ body {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  background-color: #C6A9AE;
+  background-color: #54797F;
   color: #fff;
   border: none;
   cursor: pointer;
@@ -415,7 +419,7 @@ body {
 #prevBtn:hover,
 #nextBtn:hover {
   transform: scale(1.01);
-  background-color: #54797F; /* Forest Green */
+  background-color: #C6A9AE; /* Forest Green */
   animation: shake 2s ease-in-out infinite; 
   animation-delay: 2s;
 }
@@ -632,57 +636,45 @@ footer {
 
 /* FEES css */
 
-.main-fees{
-    height:800px;
-}
-#fees-section {
-    width: 90%;
-    margin: 2em auto;
-    background-color: #f8f8f8;
-    padding: 2em;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+.service-section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     margin-top: 110px;
 }
 
-#fees-section h2 {
-    text-align: center;
-    font-family: 'Julius Sans One', sans-serif;
-    color: #ac9296;
-    margin-bottom: 1.5em;
-    font-weight: 600;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    text-align: left;
-    margin-bottom: 2em;
-}
-
-table th, table td {
-    padding: 0.5em 1em;
-    border-bottom: 1px solid #ddd;
-}
-
-table th {
+.service-card {
+    width: calc(50% - 20px); /* Assuming a gap of 20px between the cards */
     background-color: #54797F;
-    font-style: bold;
+    box-sizing: border-box;
+    padding: 20px;
+    margin: 10px; /* Gap between rows */
+    height: auto;
+}
+
+.service-card h2 {
     font-family: 'Julius Sans One', sans-serif;
-    font-size: 1.1rem;
     color: #DAE3DA;
-    text-transform: uppercase;
-    font-size: 0.9em;
-    letter-spacing: 1px;
+    margin-bottom: 10px;
 }
 
-table td {
+.service-card p {
+    color: #DAE3DA;
+    margin-bottom: 10px;
+}
+
+.cancellation-policy {
     color: #54797F;
+    margin: 20px; /* Spacing between the cards and this text */
 }
 
-table tr:last-child td {
-    border-bottom: none;
+/* For smaller screens, we'll stack the blocks on top of each other */
+@media (max-width: 768px) {
+    .service-card {
+        width: 100%;
+    }
 }
+
 
 /* fees.css */
 
@@ -732,8 +724,8 @@ table tr:last-child td {
 }
 
 .main-services .content-image {
-    width: calc(20vh - 80px);  /* Ensures that the image is square and smaller than the content-section */
-    height: calc(20vh - 80px);  /* Same as width to maintain square shape */
+    width: calc(20vh - 40px);  /* Ensures that the image is square and smaller than the content-section */
+    height: calc(20vh - 40px);  /* Same as width to maintain square shape */
     border-radius: 50%;  /* Turns it into a circle */
     object-fit: cover;  /* Ensures the image scales correctly */
     margin-left: 20px;  /* Spacing between text and the image */
@@ -935,6 +927,11 @@ table tr:last-child td {
 }
 .address p:last-child {
     margin-bottom: 20px;
+}
+
+.link-style{
+    color:#54797F;
+    padding-bottom: 20px;
 }
 
 .address a {

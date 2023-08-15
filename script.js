@@ -85,7 +85,7 @@ $("#myForm").submit(function(e) {
         // show your toast notification here
         var toast = document.getElementById("toast");
         toast.className = "show";
-        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 3000);
+        setTimeout(function(){ toast.className = toast.className.replace("show", ""); }, 5000);
 
         // clear the form
         $("#myForm")[0].reset();
