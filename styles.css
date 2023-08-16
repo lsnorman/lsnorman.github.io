@@ -42,10 +42,14 @@ body {
     background-color: #54797F;
 }
 
-#navbar .logo {
+#navbar img.logo-icon {
     margin-left: 30px;
+    height:50px;
 }
-#navbar .logo img {
+
+
+#navbar img.logo {
+    margin-left: 30px;
     height: auto; /* adjust as necessary */
     width: 50mm; /* maintain aspect ratio */
 }
@@ -644,17 +648,40 @@ footer {
 }
 
 .service-card {
-    width: calc(50% - 20px); /* Assuming a gap of 20px between the cards */
+    width: calc(50% - 20px);
     background-color: #54797F;
     box-sizing: border-box;
     padding: 20px;
-    margin: 10px; /* Gap between rows */
+    margin: 10px;
     height: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.service-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-top: 10px;  /* Gap between title and details */
+}
+
+.service-description {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 68%;  /* Increased from 48% */
+}
+
+.service-price {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    width: 28%;  /* Decreased to complement the increase in .service-description */
 }
 
 .service-card h2 {
     font-family: 'Julius Sans One', sans-serif;
-    color: #DAE3DA;
+    color:#C6A9AE;
     margin-bottom: 10px;
 }
 
@@ -662,6 +689,12 @@ footer {
     color: #DAE3DA;
     margin-bottom: 10px;
 }
+
+/* ... (rest of your CSS) */
+
+
+/* ... (rest of your CSS) */
+
 
 .cancellation-policy {
     color: #54797F;
@@ -749,6 +782,10 @@ footer {
 .main-services p {
     padding-top: 10px;
     color: #47666b;
+}
+
+.service-card p a {
+    color:#DAE3DA;
 }
 .main-services .content-section:hover .content-image {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -1024,6 +1061,100 @@ footer {
     margin: 5px;
 }
 
+#openModal {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1em;
+    color: #DAE3DA;
+    text-decoration: underline;
+    cursor: pointer;
+    outline: none; /* Removes the default focus outline */
+}
+
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #f5f5f5;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+}
+
+.modal-content h2 {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #C6A9AE;
+    padding: 10px;
+
+}
+.modal-content p {
+    color: #54797F;
+    padding: 10px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.main-policy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh; /* This will center the paper vertically on the screen. Adjust as necessary. */
+    background-color: #e8e8e8; 
+    margin-top: 100px;/* This provides a background color so our white paper stands out. */
+}
+
+.policy-section {
+    width: 80%; /* This makes sure our paper doesn't take the whole screen width. Adjust as necessary. */
+    max-width: 800px; /* This ensures our paper has a maximum width. Adjust as necessary. */
+    background-color: #fff; /* White background for our paper */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for paper effect */
+    padding: 40px; /* Padding inside our paper */
+    margin: 20px 0; /* Margin at the top and bottom of our paper */
+    border-radius: 5px; /* Slight rounded edges for our paper */
+}
+
+.policy-content h2 {
+    font-family: 'Julius Sans One', sans-serif;
+    color: #C6A9AE;
+    padding: 10px;
+    
+}
+
+.policy-content p{
+    color: #54797F;
+    padding: 10px;
+}
+
+
 /* For viewports less than 1500px but more than 1000px */
 @media (min-width: 1001px) and (max-width: 1500px) {
     .footer-logos {
@@ -1062,8 +1193,8 @@ footer {
 
 #toast.show {
     visibility: visible;
-    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 4.5s;
+    animation: fadein 0.5s, fadeout 0.5s 4.5s;
 }
 
 @-webkit-keyframes fadein {

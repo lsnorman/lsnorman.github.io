@@ -17,8 +17,8 @@ Dropdown on chiropractic care:
   <script src="script.js" defer></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.css" />
-<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/fullpage.extensions.min.js"></script>
+<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/3.1.2/vendors/scrolloverflow.min.js"></script>-->
 
 
 
@@ -28,9 +28,9 @@ Dropdown on chiropractic care:
     
 <!-- Navbar -->
 <header id="navbar">
-    <a href="#" class="logo">
-        <img src="cclogo.png" alt="Logo">
-    </a>
+    
+    <img class="logo" src="cclogo.png" alt="Logo">
+    
     <nav class="nav">
         <ul>
             <li class="close-menu">&times;</li>
@@ -122,12 +122,23 @@ Dropdown on chiropractic care:
             <h2>Chiropractic Focus</h2>
             <img src="chiropractic.gif" alt="Image 6">
             <div class="slide-content">
-                <p>Chiropractors focus on the musculoskeletal system, particularly the spine and pelvis, using specific spinal manipulations, also known as 'adjustments,' to correct dysfunctions.<br> 
-                These adjustments have two primary effects: mechanical, enhancing joint mobility, and neurological, stimulating sensory receptors that provide vital feedback to the brain and spinal cord.<br> 
-                This stimulation helps reduce muscle spasms, modulate pain sensations, and improve movement, coordination, and posture.<br> 
-                Some people have reported additional benefits, such as better sleep, increased calmness, and improved alertness.</p>
-                <p>Chiropractic care offers a drug and surgery-free approach to treating joint, bone, and muscle problems and their impact on well-being.<br>
-                Chiropractors prioritise patient-centred care, utilising shared decision-making and tailored communication strategies to meet each patient's unique needs and preferences.</p>
+                <p>Chiropractors focus on the whole musculoskeletal system, particularly the spine and pelvis,
+                    using specific spinal manipulations, also known as &#39;adjustments,&#39; to correct dysfunctions.
+                    These adjustments have two primary effects: mechanical, enhancing joint mobility, and
+                    neurological, stimulating sensory receptors that provide vital feedback to the brain and
+                    spinal cord.</p>
+                        <br>
+                    <p>This stimulation helps reduce muscle spasms, modulate pain sensations, and
+                    improve movement, coordination, and posture. Some people have reported additional
+                    benefits of being more comfortable, such as better sleep, increased calmness, and improved
+                    alertness. Chiropractic treatment encompasses are range of techniques and manipulation is
+                    one part of this. Not all conditions require manipulation and other techniques can be used
+                    for example, soft tissue work, joint mobilisation, stretches, education, particular exercises,
+                    acupuncture and ultrasound.</p><br>
+                    <p>Chiropractic care offers a drug and surgery-free approach to treating joint, bone, and
+                    muscle problems and their impact on well-being. Chiropractors prioritise patient-centred
+                    care, utilising shared decision-making and tailored communication strategies to meet each
+                    patient&#39;s unique needs and preferences.</p>
             </div>
         </div>
     </div>
@@ -136,8 +147,14 @@ Dropdown on chiropractic care:
             <h2>Education and Background</h2>
             <img src="open-book.gif" alt="Image 8">
             <div class="slide-content">
-                <p>Chiropractors receive specialised education to adapt spinal manual therapy to suit patients of different ages and conditions.<br>
-                Chiropractic treatment is based on the scientific understanding that the body is a self-regulating, self-healing organism, controlled by the brain, spinal cord, and nerves throughout the body.</p>
+                <p>Chiropractors receive specialised education to adapt spinal manual therapy to suit patients
+                    of different ages and conditions. Chiropractic treatment is based on the scientific
+                    understanding that the body is a self-regulating, self-healing organism, controlled by the
+                    brain, spinal cord, and nerves throughout the body. All chiropractors in the UK receive a
+                    high level of training graduating from university after a 4- or 5-year degree. Chiropractors in
+                    the UK must be registered with the General Chiropractic Council.</p>
+
+                    
             </div>
         </div>
 
@@ -177,7 +194,8 @@ Dropdown on chiropractic care:
             <p>CO5 9EE</p>
             <p>Landline: </p>
             <p style="margin-bottom: 20px;">Mobile: 07926172221</p>
-            <p><a href="privacy_policy.html">Privacy Policy</a></p>
+            <p style="margin-bottom: 20px;"><a href="privacy_policy.html">Privacy Policy</a></p>
+            <button id="openModal">Information for Your Visit</button>
 
         </div>
         <div class="enquiry-form">
@@ -221,6 +239,18 @@ Dropdown on chiropractic care:
    
 
 </main>
+<div id="myModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Information for Your Visit</h2>
+        <p>Directions a12 Northbound – take the exit for Kelvedon (J23), continue on the B1024 through Kelvedon and Feering. Before the slip road to the a12 North there is a sign for Prested Hall; follow the road around to the driveway.</p>
+        <p>a12 Southbound – take the exit for Feering (J24) and turn left into the driveway to Prested Hall from the sliproad.</p>
+        <p>Prested Hall has a long driveway. Follow it towards the main house and then turn left at the signs for the Health Club. Follow this around to the parking area.</p>
+        <p>On arrival, enter the Health Club through the double doors. The reception will buzz you through the gates and guide you to the seating area.</p>
+        <p>Mobile phones – to enjoy an uninterrupted treatment, please turn your mobile phones to silent.</p>
+    </div>
+</div>
+
 
 
 
