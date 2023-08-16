@@ -216,9 +216,10 @@ body {
 
 .vid-section {
     position: relative;
-    height: 88vh;
+    height: 75vh;
     width: 100%;
     overflow: hidden;
+    margin-top: 100px;
 }
 
 .vid {
@@ -715,8 +716,14 @@ footer {
     width: 100vw;  /* Ensures the main-services div covers the entire viewport width */
     height: 80%;
     overflow-x: hidden;
+    max-height: calc(100vh - 100px); /* Replace [HEIGHT OF NAVBAR] with your navbar's height. */
+    overflow-y: scroll;
     padding-top: 120px;
+    position: relative;
 }
+
+
+
 
 .main-services .content-section {
     min-height: 20vh;
@@ -790,6 +797,46 @@ footer {
 .main-services .content-section:hover .content-image {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+.scroll-arrow {
+    position: absolute;
+    bottom: 10px;  /* positions the element from the bottom */
+    left: 95%;  /* centers the element horizontally */
+    transform: translateX(-50%); /* adjusts for true horizontal centering */
+    width: 50px; /* or whatever size you want */
+    height: 50px;
+    background-color:#C6A9AE; /* pink background */
+    border-radius: 50%;  /* makes it a circle */
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.2);  /* subtle shadow for 3D effect */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* centers the arrow icon inside the circle */
+    transition: transform 0.3s ease-in-out; /* This provides a smooth movement */
+    cursor: pointer;
+    transform-origin: center;
+    color:white; /* Indicates it's clickable */
+}
+
+/* When the arrow should shake */
+.shaking {
+    animation: shakeAnimation 0.5s;
+}
+
+
+@keyframes shakeAnimation {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    20%, 60% {
+        transform: translateX(-5px);
+    }
+    40%, 80% {
+        transform: translateX(5px);
+    }
+}
+
+
+
 
 
 
