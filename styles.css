@@ -546,57 +546,81 @@ body {
     
 }
 
-
 .wte {
-    margin-top: 110px;
+    margin-top: 120px;
 }
-/* Basic styling for cards and their inner content */
+
+.cards-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
 .card {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
     border: 1px solid #e0e0e0;
-    width: calc(50% - 10px); /* 50% for two cards in a row, minus a little for margin */
-    margin: 5px; /* Small margin around cards */
-    overflow: hidden; /* Ensure content does not spill outside the card */
-    position: relative; /* To position the front and back absolutely inside */
-    height: 300px; /* This gives space to the card. Adjust as needed based on your content. */
-    float: left; /* This will make sure two cards are in the same row */
-    transition: 0.3s; /* Smooth transition for hover effects */
-    
+    width: calc(50% - 10px); /* 50% for two cards in a row, minus a little for the gap */
+    margin-bottom: 20px; /* Space between rows */
+    overflow: hidden;
+    transition: 0.3s;
+    position: relative;
 }
 
-/* Styling for the front and back of the cards */
 .card-front, .card-back {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
     bottom: 0;
+    width: 100%;
+    height: 100%; /* Full height */
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    transition: opacity 0.5s; /* Fade transition */
+    transition: opacity 0.5s;
     background-color: #DAE3DA;
 }
 
 .card-back {
-    opacity: 0; /* Hide the card back by default */
+    opacity: 0; 
     padding: 20px;
-    justify-content: flex-start;
+    align-items: flex-start;
+    justify-content: center; /* Centered but start-aligned text */
+}
+.card-back {
+    position: relative;  /* only position card-back as relative so it defines the height of the card */
 }
 
-/* Hover effect to show card back */
-.card:hover .card-front {
-    opacity: 0;
-}
-
-.card:hover .card-back {
+.card-front {
+    z-index: 2;
+    visibility: visible;
     opacity: 1;
 }
 
-/* Image & Title styling */
+.card-back {
+    padding: 20px;
+    z-index: 1;
+    visibility: hidden;
+    opacity: 0;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.card:hover .card-front {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+}
+
+.card:hover .card-back {
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+}
+
 .card-front img {
-    width: 80px; /* You can adjust this as needed */
+    width: 80px;
     margin-bottom: 20px;
 }
 
@@ -604,31 +628,24 @@ body {
     text-align: center;
 }
 
-/* Adjustments for the footer to ensure it's visible */
 footer {
     margin-top: 20px;
     padding: 20px 0;
-    clear: both; /* Clear the float */
-}
-
-/* This is optional, for a better visual effect */
-.card-front {
-    background-color: #DAE3DA;
+    clear: both;
 }
 
 .wte h1, .wte h2, .wte h3, .wte h4, .wte h5, .wte h6 {
     font-family: 'Julius Sans One', sans-serif;
     color: #ac9296;
     padding-bottom: 15px;
+    text-align: center; /* Center-align the text */
 }
 
-/* Styling for paragraph text inside .wte */
 .wte p, .wte li, .wte ul {
     color: #54797F;
     text-align: left;
 }
 
-/* Responsive stacking for smaller screens */
 @media (max-width: 1300px) {
     .card {
         width: 100%;
@@ -1123,7 +1140,7 @@ footer {
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -1174,32 +1191,61 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 60vh; /* This will center the paper vertically on the screen. Adjust as necessary. */
+    height: 60vh; 
     background-color: #e8e8e8; 
-    margin-top: 100px;/* This provides a background color so our white paper stands out. */
+    margin-top: 100px;
 }
 
-.policy-section {
-    width: 80%; /* This makes sure our paper doesn't take the whole screen width. Adjust as necessary. */
-    max-width: 800px; /* This ensures our paper has a maximum width. Adjust as necessary. */
-    background-color: #fff; /* White background for our paper */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for paper effect */
-    padding: 40px; /* Padding inside our paper */
-    margin: 20px 0; /* Margin at the top and bottom of our paper */
-    border-radius: 5px; /* Slight rounded edges for our paper */
+.policy-header {
+    text-align: center; /* Centers the Privacy Policy heading */
+    margin-bottom: 20px; /* Some spacing between title and icons */
 }
 
-.policy-content h2 {
+.main-policy h2 {
     font-family: 'Julius Sans One', sans-serif;
     color: #C6A9AE;
     padding: 10px;
-    
+    margin-bottom: 20px; /* A little spacing between the title and the icons */
 }
 
-.policy-content p{
-    color: #54797F;
-    padding: 10px;
+.doc-icons {
+    display: flex;
+    justify-content: center; /* Centers the icons horizontally */
+    gap: 20px; /* Space between the document icons */
 }
+
+.doc-icons a {
+    display: flex;
+    flex-direction: column; /* Stacks icon and label vertically */
+    align-items: center; /* Centers content horizontally */
+    text-decoration: none; /* Removes default link underline */
+    border: 1px solid #d2d2d2; /* Adds border around each document container */
+    border-radius: 5px; /* Rounded corners for modern look */
+    padding: 15px; /* Padding around each document container */
+    background-color: #ffffff; /* White background for each document container */
+    transition: transform 0.3s ease; /* Smooth scaling on hover */
+}
+
+.doc-icons a:hover {
+    transform: scale(1.05); /* Slightly enlarges the document container on hover */
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1); /* Adds shadow on hover for depth effect */
+}
+
+.doc-icons a img {
+    width: 50px; /* Adjust as needed */
+    height: 50px; /* Adjust as needed */
+    margin-bottom: 10px; /* Space between the image and the label */
+}
+
+.doc-icons a p {
+    color:#54797F; /* Dark text color for label */
+    margin: 0; /* Removes default paragraph margin */
+    text-align: center;
+}
+.policy-content{
+    color:#54797F;
+}
+
 
 
 /* For viewports less than 1500px but more than 1000px */
