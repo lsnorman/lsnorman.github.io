@@ -1492,11 +1492,11 @@ footer {
     }
 
     .testimonial-slide :active .testimonial-text {
-        font-size: 1.2rem; /* reduce font size */
+        font-size: 1.0rem; /* reduce font size */
     }
 
     .testimonial-slide .testimonial-text {
-        font-size: 1.2rem; /* reduce font size */
+        font-size: 1.0rem; /* reduce font size */
     }
 
     .testimonial-slide .testimonial-author {
