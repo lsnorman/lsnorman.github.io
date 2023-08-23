@@ -1495,6 +1495,10 @@ footer {
         font-size: 1.5rem; /* reduce font size */
     }
 
+    .testimonial-slide .testimonial-text {
+        font-size: 1.5rem; /* reduce font size */
+    }
+
     .testimonial-slide .testimonial-author {
         font-size: 1.5rem; /* reduce font size */
     }
@@ -1596,7 +1600,7 @@ footer {
         margin-top: 4vh;
     }
     .about-text{
-        font-size: 1.5em;
+        font-size: 2em;
     }
 
     .full-page .section .slide h2{
