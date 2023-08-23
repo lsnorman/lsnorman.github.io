@@ -1479,7 +1479,7 @@ footer {
         height: 50px;
     }
 
-    .testimonial-slide .testimonial-text {
+    .testimonial-slide :active .testimonial-text {
         font-size: 1.5rem; /* reduce font size */
     }
 
