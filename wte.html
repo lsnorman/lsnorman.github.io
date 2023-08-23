@@ -265,5 +265,23 @@
 
 <script src="script.js"></script>
 
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+        var cards = document.querySelectorAll('.card');
+    
+        cards.forEach(function(card) {
+            card.addEventListener('click', function() {
+                if(this.classList.contains('flipped')) {
+                    this.classList.remove('flipped');
+                } else {
+                    this.classList.add('flipped');
+                }
+            });
+        });
+    });
+    
+</script>
+
 </body>
 </html>

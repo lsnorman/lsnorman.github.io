@@ -619,6 +619,18 @@ body {
     z-index: 2;
 }
 
+.card.flipped .card-front {
+    visibility: hidden;
+    opacity: 0;
+    z-index: 1;
+}
+
+.card.flipped .card-back {
+    visibility: visible;
+    opacity: 1;
+    z-index: 2;
+}
+
 .card-front img {
     width: 80px;
     margin-bottom: 20px;
