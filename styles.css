@@ -1546,38 +1546,40 @@ footer {
     }
 
     .address p, #openModal{
-        font-size: 1.5em;
+        font-size: 2em;
         padding-top: 5px;
     }
 
     #myForm {
-        height: 30vh;
+        height: 35vh;
     }
 
     #myForm label {
-        font-size: 1.5em;
-        padding: 20px;
+        font-size: 2em;
+        padding: 15px;
     }
     #myForm input{
-        height: 60px;
+        height: 80px;
         margin-left: 20px;
         margin-right: 20px;
-        font-size: 1.4em;
+        font-size: 2em;
         padding-left:20px;
     }
     #myForm textarea{
-        height: 120px;
+        height: 160px;
         margin-left: 20px;
         margin-right: 20px;
-        font-size: 1.4em;
+        font-size: 2em;
         padding-left:20px;
         padding-top:20px;
     }
     #myForm button{
         height: 60px;
+        width: auto;
         margin-left: 20px;
+        margin-right: 20px;
         margin-top: 20px;
-        font-size: 1.4em;
+        font-size: 2em;
     }
 
     #toast {
