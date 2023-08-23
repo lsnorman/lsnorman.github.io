@@ -212,3 +212,30 @@ window.onclick = function(event) {
         modal.style.display = "none";
     }
 }
+
+// Function to check width and change the logo
+function changeLogoBasedOnWidth() {
+    const logo = document.getElementById('logoImage');
+    const isIndexPage = window.location.href.indexOf('index.html') !== -1;
+
+    if (isIndexPage) {
+        logo.src = "cclogo-icon.png";
+        logo.style.height = '50px';
+        logo.style.width = 'auto';
+    } else if (window.innerWidth <= 1000) {
+        logo.src = "cclogo-icon.png";
+        logo.style.height = '50px';
+        logo.style.width = 'auto';
+    } else {
+        logo.src = "cclogo.png";
+        logo.style.height = '';  // Resetting to default or you can set a specific value
+        logo.style.width = '';   // Resetting to default or you can set a specific value
+    }
+}
+
+// Call the function when the page loads
+changeLogoBasedOnWidth();
+
+// Add an event listener for window resize
+window.addEventListener('resize', changeLogoBasedOnWidth);
+

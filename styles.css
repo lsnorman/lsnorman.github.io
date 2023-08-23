@@ -70,7 +70,7 @@ body {
     margin: 0 20px;
 }
 
-.nav ul li a {
+.nav ul li a, .nav ul li p {
     color: #DAE3DA;
     font-weight: 500;
     text-decoration: none;
@@ -720,12 +720,6 @@ footer {
 }
 
 /* For smaller screens, we'll stack the blocks on top of each other */
-@media (max-width: 768px) {
-    .service-card {
-        width: 100%;
-    }
-}
-
 
 /* fees.css */
 
@@ -1049,20 +1043,7 @@ footer {
     padding: 20px;
 }
 
-/* Responsive design */
-@media (max-width: 1000px) {
-    .info-container {
-        flex-direction: column;
-    }
-    .map-container,
-    .address,
-    .enquiry-form {
-        width: 100%;
-    }
-    .map-container {
-        height: 50vh; /* Adjust the height as per requirement */
-    }
-}
+
 
 
 .enquiry-form form {
@@ -1319,6 +1300,10 @@ footer {
 
 
 @media (max-width: 1000px) {
+    #navbar {
+        height: 8vh;
+    }
+
     .nav ul {
         position: fixed;
         right: -100%;
@@ -1334,19 +1319,24 @@ footer {
 
     .nav ul li {
         margin: 30px 0;
+        padding-top: 50px;
+        font-size: 40px;
     }
 
     .menu-toggle {
         display: block;
-        margin-right: 20px;
+        margin-right: 40px;
         cursor: pointer;
+    }
+
+    .fas.fa-bars {
+        font-size: 45px; /* Change this value to adjust the size */
     }
 
     .close-menu {
         display: none; /* Hide by default */
         position: absolute;
-        top: 15px;
-        left: 15px;
+        
         font-size: 2rem;
         cursor: pointer;
     }
@@ -1354,6 +1344,10 @@ footer {
     /* Show close button when menu is active */
     .nav.active .close-menu {
         display: block;
+        padding:0;
+        top: 5px;
+        left: 50px;
+        font-size: 5rem;
     }
 
     .nav.active ul {
@@ -1371,12 +1365,113 @@ footer {
         margin-top: 0; /* Or you can reduce this value based on your design needs */
     }
 
-}
-
-
-@media (max-width: 768px) {
+    .vid-section {
+        position: relative;
+        height: 60vh;
+        width: 100%;
+        overflow: hidden;
+        margin-top: 100px;
+    }
+    
+    .vid {
+        position: absolute; 
+        top: 0;
+        left: 50%;  /* Changed to center the video on the section */
+        transform: translateX(-50%);  /* Translate only horizontally */
+        height: 100%;  /* This keeps the height constant */
+        width: auto;  /* Allows the width to adjust freely */
+        z-index: -2; 
+    }
+    
+    .vid video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: -2;
+    }
+    
+    
+    .vid-overlay {
+        position: absolute;
+        content: "";
+        background: rgba(0, 0, 0, 0.4);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1; 
+    }
+    
+    .slogan-and-button {
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: 0;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: #DAE3DA;
+        text-align: center;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    /* ... Rest of your styles ... */
+    
+    
+    /* ... Rest of your styles ... */
+    
+    
+    .logo-slogan{
+        height: 270px;
+        width: auto;
+        padding-bottom: 50px;
+    }
+    
+    
+    .slogan {
+        font-size: 4em;
+        font-weight: 400;
+        margin-bottom: 50px;
+        font-family: 'Julius Sans One', sans-serif;
+    }
+    
+    .book-now {
+        border: none;
+        background: #C6A9AE;
+        color: white;
+        font-size: 2em;
+        padding: 20px 30px;
+        border-radius: 15px;
+        transition: background 0.3s ease-in-out, transform 0.3s ease-in-out;
+        cursor: pointer;
+        text-decoration: none;
+    }
+    
+    .book-now:hover {
+        background: #978185;
+        transform: scale(1.1);
+    }
+    .testimonial-slider {
+        position: relative;
+        width: 100%;
+        height: 30vh;
+        overflow: hidden;
+        z-index: 1;
+    }
+    
+    .slides-container {
+        display: flex;
+        width: 300%; /* You might need to adjust this */
+        height: 100%;
+        position: relative;
+        left: 0;
+        transition: left 1s ease-in-out; /* Adjust animation speed here */
+    }
     .testimonial-slide {
-        padding: 30px; /* reduce padding */
+        padding: 50px; /* reduce padding */
     }
 
     .testimonial-slide img {
@@ -1385,42 +1480,218 @@ footer {
     }
 
     .testimonial-slide .testimonial-text {
-        font-size: 0.9rem; /* reduce font size */
+        font-size: 1.7rem; /* reduce font size */
     }
 
+    .testimonial-slide .testimonial-author {
+        font-size: 1.5rem; /* reduce font size */
+    }
+
+
+      
     .testimonial-author {
-        font-size: 0.8rem; /* reduce font size */
+        font-size: 1.0rem;
+        font-weight: 800;
+        color: #978185;
     }
+    
+    /* Navigation Buttons */
+    #prevBtn,
+    #nextBtn {
+      position: absolute;
+      top: 10%;
+      transform: translateY(-50%);
+      background-color: #54797F;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      padding: 15px;
+      font-size: 1.6rem;
+      z-index: 1; 
+      transition: transform 0.3s, background-color 0.3s; 
+      transform-origin: center; 
+    }
+    
+    #prevBtn {
+      left: 10px;
+    }
+    
+    #nextBtn {
+      right: 10px;
+    }
+
+
+    .info-container {
+        flex-direction: column;
+        gap:20px;
+    }
+    .map-container iframe {
+        height: 400px; /* Adjust this value based on your preference for mobile views */
+    }
+
+    .address p, #openModal{
+        font-size: 1.5em;
+        padding-top: 5px;
+    }
+
+    #myForm {
+        height: 30vh;
+    }
+
+    #myForm label {
+        font-size: 1.5em;
+        padding: 20px;
+    }
+    #myForm input{
+        height: 60px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 1.4em;
+        padding-left:20px;
+    }
+    #myForm textarea{
+        height: 120px;
+        margin-left: 20px;
+        margin-right: 20px;
+        font-size: 1.4em;
+        padding-left:20px;
+        padding-top:20px;
+    }
+    #myForm button{
+        height: 60px;
+        margin-left: 20px;
+        margin-top: 20px;
+        font-size: 1.4em;
+    }
+
+    #toast {
+        visibility: hidden;
+        max-width: 70%;
+        margin: auto;
+        background-color: rgb(51,51,51);
+        color: #fff;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 25%;
+        bottom: 30px;
+        font-size: 30px;
+    }
+
+    .about-section{
+        margin-top: 4vh;
+    }
+
+    .full-page .section .slide h2{
+        font-size: 3em;
+    }
+
+    .full-page .section .slide img{
+        height: 150px;
+        width: auto;
+    }
+    .full-page .section .slide .slide-content p{
+        font-size: 2em;
+    } 
+    #timeline p{
+        font-size: 2em;
+    }
+
+    .wte {
+        margin-top: 8vh;
+    }
+    .wte h1{
+        font-size: 3em;
+        padding: 10px;
+    }
+
+    .cards-wrapper .card .card-inner .card-front img{
+        height: 120px;
+        width: auto;
+    }
+    .cards-wrapper .card .card-inner .card-front h2 {
+        font-size: 2.5em;
+        padding: 10px;
+    }
+
+    .cards-wrapper .card .card-inner .card-back{
+        padding: 10px;
+    }
+    .cards-wrapper .card .card-inner .card-back h3 {
+        font-size: 2em;
+        padding: 10px;
+    }
+
+    .cards-wrapper .card .card-inner .card-back p, .card .card-inner .card-back li {
+        font-size: 2em;
+        padding: 10px;
+    }
+
+    .service-section {
+        margin-top: 9vh; 
+    }
+
+    .service-card {
+        width: 100%;
+    }
+
+    .service-card h2 {
+        font-size: 2em;
+    }
+
+    .service-description p, .service-price p {
+        font-size: 2em;
+
+    }
+    .booking-link p{
+        font-size: 2em;
+    }
+    .cancellation-policy p{
+        font-size: 1em;
+    }
+
+
+    /* services mobile rendering*/
+    .main-services {
+        margin-top: 9vh;
+        padding-top:0;
+    }
+
+    .content {
+        overflow: hidden;
+    }
+
+    .main-services .content-text {
+        flex: 70%;  /* Allocates 70% width to the content-text */
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+
+    .content-section .content .content-image {
+        border-radius: 5%;
+        flex:30%;
+        display: flex;
+        flex-direction: column;
+        padding-top: 10px;
+    }
+
+    .scroll-arrow {
+
+    height: 80px;
+    width: 80px;
+    bottom: 10px;  /* positions the element from the bottom */
+    left: 95%;  /* centers the element horizontally */
+    transform: translateX(-60%); /* adjusts for true horizontal centering */
+    }
+    
 }
 
-@media (max-width: 480px) {
-    .testimonial-slide {
-        padding: 20px; /* further reduce padding */
-    }
-
-    .testimonial-slide img {
-        max-width: 60px; /* further reduce image size */
-        height: 40px;
-    }
-
-    .testimonial-slide .testimonial-text {
-        font-size: 0.8rem; /* further reduce font size */
-    }
-
-    .testimonial-author {
-        font-size: 0.7rem; /* further reduce font size */
-    }
-}
 
 
-@media (max-width: 768px) {
-    .slogan {
-        font-size: 2em; /* reduce font size */
-    }
-}
 
-@media (max-width: 480px) {
-    .slogan {
-        font-size: 1.5em; /* further reduce font size */
-    }
-}
+
+
