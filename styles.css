@@ -1678,7 +1678,7 @@ footer {
         font-size: 2em;
     }
 
-    .service-description p, .service-price p {
+    .service-description p, .service-price p, .service-duration p {
         font-size: 2em;
 
     }
